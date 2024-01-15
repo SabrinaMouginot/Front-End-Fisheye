@@ -13,9 +13,11 @@ async function getPhotographer() {
 function displayPhotographerInfo(photographer) {
     const photographerName = document.querySelector("#photographer-name");
     const photographerLocation = document.querySelector("#photographer-location");
+    const photographerTagline = document.querySelector("#photographer-desc");
 
     photographerName.innerText = photographer.name;
     photographerLocation.innerText = photographer.city+", "+photographer.country;
+    photographerTagline.innerText = photographer.tagline;
 
 }
 
