@@ -10,9 +10,9 @@ function photographerTemplate(data) {
 
 
 
-        // Création de la balise ancre (<a>)
+        // Création de la balise ancre (<a>) avec le lien vers la page d'accueil et l'ID du photographe
         const anchor = document.createElement('a');
-        anchor.href = '#';
+        anchor.href = 'index.html?id=${photographers.id}';
 
 
 
