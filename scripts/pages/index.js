@@ -9,7 +9,7 @@ async function displayData(photographers) {
 
     photographers.forEach((photographer) => {
         const photographerModel = photographerTemplate(photographer);
-        const userCardDOM = photographerModel.getUserCardDOM(photographers.id); // passer l'id du photographe
+        const userCardDOM = photographerModel.getUserCardDOM(photographer.id); // passer l'id du photographe
         photographersSection.appendChild(userCardDOM);
     });
 }
@@ -21,4 +21,3 @@ async function init() {
 }
 
 init();
-
