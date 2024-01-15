@@ -5,14 +5,14 @@ function photographerTemplate(data) {
 
     const picture = `assets/photographers/Sample Photos/Photographers ID Photos/${portrait}`;
 
-    function getUserCardDOM() {
+    function getUserCardDOM(id) {
         const article = document.createElement('article');
 
 
 
         // Création de la balise ancre (<a>) avec le lien vers la page d'accueil et l'ID du photographe
         const anchor = document.createElement('a');
-        anchor.href = 'index.html?id=${photographers.id}';
+        anchor.href = `photographer.html?id=${id}`;
 
 
 
@@ -29,7 +29,7 @@ function photographerTemplate(data) {
 
 
         // Ajout de la ville et du pays (<p>) et ajout à la balise ancre
-        const location = document.createElement('p');
+        const location = document.createElement('h3');
         location.textContent = `${city}, ${country}`;
         anchor.appendChild(location);
 
@@ -40,7 +40,7 @@ function photographerTemplate(data) {
 
         // Ajout du prix avec retour à la ligne (<p>) et ajout à la balise ancre
         const priceParagraph = document.createElement('p');
-        priceParagraph.textContent = `Price: ${price}$`;
+        priceParagraph.textContent = `${price}€/jour`;
         anchor.appendChild(priceParagraph);
 
         
