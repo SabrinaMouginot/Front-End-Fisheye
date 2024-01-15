@@ -7,12 +7,15 @@ async function getPhotographer() {
     const data = await fetch('http://127.0.0.1:5500/data/photographers.json')
         .then((res) => res.json())
 
+
 }
 
 function displayPhotographerInfo(photographer) {
     const photographerName = document.querySelector("#photographer-name");
+    const photographerLocation = document.querySelector("#photographer-location");
 
     photographerName.innerText = photographer.name;
+    photographerLocation.innerText = photographer.city+", "+photographer.country;
 
 }
 
