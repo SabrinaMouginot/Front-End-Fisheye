@@ -20,18 +20,7 @@ function displayModal() {
     const close = document.querySelector('.btnClose'); //sélectionne le premier élément du DOM avec la classe "btnClose" et l'assigne à la variable constante "close".
     const form = document.getElementById('formContact'); //récupère l'élément du DOM ayant l'ID "formContact" et l'assigne à la variable constante "form".
     modalAttribute.focus(); //met le focus sur l'élément modal, ce qui peut être utile pour la navigation au clavier.
-    close.addEventListener("keydown", (ev) => { //ajoute un écouteur d'événements pour la touche enfoncée sur l'élément "close" et exécute la fonction fléchée lorsqu'on appuie sur une touche.
-        if (ev.key == "Enter") { // vérifie si la touche enfoncée est la touche "Enter".
-            modal.style.display = "none";  //Si la touche "Enter" est enfoncée, cela masque l'élément modal en lui attribuant la valeur "none".
-            main.setAttribute("aria-modal", "true"); //attribue à l'élément "main" l'attribut ARIA "aria-modal" avec la valeur "true".
-            modalAttribute.setAttribute("aria-modal", "false"); //attribue à l'élément modal l'attribut ARIA "aria-modal" avec la valeur "false".
-        }
-    })
-    form.addEventListener('submit', function (e) { //ajoute un écouteur d'événements pour la soumission du formulaire et exécute la fonction de rappel lorsqu'il est soumis.
-        e.preventDefault(); //empêche le comportement par défaut du formulaire, évitant ainsi qu'il ne soit soumis de manière traditionnelle.
 
-        validForm(); //appelle une fonction nommée "validForm", probablement destinée à valider le formulaire.
-    });
 }
 
 
@@ -45,7 +34,7 @@ function closeModal() {
     modal.style.display = "none"; //Masque l'élément modal en lui attribuant la valeur "none".
     modalAttribute.setAttribute("aria-modal", "false"); //Attribue à l'élément modal l'attribut ARIA "aria-modal" avec la valeur "false".
     main.setAttribute("aria-modal", "true"); //Attribue à l'élément "main" l'attribut ARIA "aria-modal" avec la valeur "true".
-    body.classList.remove("no-scroll"); //Supprime la classe "no-scroll" de la liste de classes de l'élément body, probablement utilisée pour permettre le défilement.
+    
     btnModal.focus(); //Met le focus sur le bouton modal, ce qui peut être utile pour la navigation au clavier.
 }
 
