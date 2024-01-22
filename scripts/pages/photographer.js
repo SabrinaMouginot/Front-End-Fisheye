@@ -2,6 +2,7 @@
 
 const urlParams = new URLSearchParams(window.location.search);
 const photographerId = urlParams.get('id');
+const dialog = document.querySelector("#contact_modal");
 
 async function getPhotographer() {
     const data = await fetch('http://127.0.0.1:5500/data/photographers.json')
@@ -23,11 +24,19 @@ function displayPhotographerInfo(photographer) {
     photographerImg.alt = photographer.name;
 }
 
+function displayModal() {
+    dialog.showModal();
+}
+
 async function init() {
     // Récupère les datas des photographes
     const photographer = await getPhotographer();
     console.log(photographer);
     displayPhotographerInfo(photographer);
+    const contactBtn = document.querySelector("#contact");
+    contactBtn.addEventListener("click", displayModal);
 }
+
+
 
 init();
