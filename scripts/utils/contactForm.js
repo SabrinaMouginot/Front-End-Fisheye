@@ -1,41 +1,8 @@
-// function displayModal() {
-//     const modal = document.getElementById("contact_modal");
-// 	modal.style.display = "block";
-// }
-
-// function closeModal() {
-//     const modal = document.getElementById("contact_modal");
-//     modal.style.display = "none";
-// }
-
-
-//Je crée une fonction pour afficher la modale de contact
-function displayModal() {
-    const modal = document.getElementById("contact_modal"); //récupère l'élément du DOM ayant l'ID "contact_modal" et l'assigne à la variable constante "modal".
-    modal.style.display = "block"; //définie le style de l'élément modal pour le rendre visible en lui attribuant la valeur "block".
-    const modalAttribute = document.querySelector(".modal"); //sélectionne le premier élément du DOM avec la classe "modal" et l'assigne à la variable constante "modalAttribute".
-    modalAttribute.setAttribute("aria-modal", "true"); //attribue à l'élément modal l'attribut ARIA "aria-modal" avec la valeur "true".
-    const main = document.getElementById("main"); //récupère l'élément du DOM ayant l'ID "main" et l'assigne à la variable constante "main".
-    main.setAttribute("aria-modal", "false"); //attribue à l'élément "main" l'attribut ARIA "aria-modal" avec la valeur "false".
-    const close = document.querySelector('.btnClose'); //sélectionne le premier élément du DOM avec la classe "btnClose" et l'assigne à la variable constante "close".
-    const form = document.getElementById('formContact'); //récupère l'élément du DOM ayant l'ID "formContact" et l'assigne à la variable constante "form".
-    modalAttribute.focus(); //met le focus sur l'élément modal, ce qui peut être utile pour la navigation au clavier.
-
-}
 
 
 //Je crée une fonction pour la fermeture de la modale de contact
 function closeModal() {
-    const modal = document.getElementById("contact_modal"); //Récupère l'élément du DOM avec l'ID "contact_modal" et l'assigne à la variable constante "modal".
-    const btnModal = document.querySelector(".contact_button"); //Sélectionne le premier élément du DOM avec la classe "contact_button" et l'assigne à la variable constante "btnModal".
-    const modalAttribute = document.querySelector(".modal"); //Sélectionne le premier élément du DOM avec la classe "modal" et l'assigne à la variable constante "modalAttribute".
-    const main = document.getElementById("main"); //Récupère l'élément du DOM avec l'ID "main" et l'assigne à la variable constante "main".
-    const body = document.getElementById("body"); //Récupère l'élément du DOM avec l'ID "body" et l'assigne à la variable constante "body".
-    modal.style.display = "none"; //Masque l'élément modal en lui attribuant la valeur "none".
-    modalAttribute.setAttribute("aria-modal", "false"); //Attribue à l'élément modal l'attribut ARIA "aria-modal" avec la valeur "false".
-    main.setAttribute("aria-modal", "true"); //Attribue à l'élément "main" l'attribut ARIA "aria-modal" avec la valeur "true".
-    
-    btnModal.focus(); //Met le focus sur le bouton modal, ce qui peut être utile pour la navigation au clavier.
+   
 }
 
 

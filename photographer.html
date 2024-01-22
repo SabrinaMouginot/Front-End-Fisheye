@@ -20,50 +20,35 @@
         <h2 id="photographer-location"></h2>
         <p id="photographer-desc"></p>
       </div>
-      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      <button class="contact_button" id="contact">Contactez-moi</button>
       <img id="photographer-photo">
     </div>
   </main>
-  <div id="contact_modal">
-    <div class="modal">
+  <dialog id="contact_modal" class="modal">
       <header>
         <h2>Contactez-moi</h2>
         <img src="assets/icons/close.svg" onclick="closeModal()" />
       </header>
-      <!-- <form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-					<div>
-						<label>Nom</label>
-						<input />
-					</div>
-					<div>
-						<label>Email</label>
-						<input />
-					</div> -->
-      <form name="reserve" action="index.html" method="get" id="form">
+      <form name="reserve" id="form">
         <div class="formData">
-          <label for="first">Prénom</label><br>
-          <input class="text-control" type="text" id="first" name="first" minlength="2" /><br>
+          <label for="first">Prénom</label>
+          <input class="text-control" type="text" id="first" name="first" minlength="2" />
         </div>
         <div class="formData">
-          <label for="last">Nom</label><br>
-          <input class="text-control" type="text" id="last" name="last" /><br>
+          <label for="last">Nom</label>
+          <input class="text-control" type="text" id="last" name="last" />
         </div>
         <div class="formData">
-          <label for="email">E-mail</label><br>
-          <input class="text-control" type="email" id="email" name="email" /><br>
+          <label for="email">E-mail</label>
+          <input class="text-control" type="email" id="email" name="email" />
         </div>
         <div>
           <label for="message">Votre message</label>
-          <input class="text-control" type="text" id="message" name="message" />
+          <textarea name="message" class="text-control" id="message" cols="30" rows="10"></textarea>
         </div>
-        <button class="contact_button">Envoyer</button>
+        <button >Envoyer</button>
       </form>
-    </div>
-  </div>
+  </dialog>
   <!-- factory  -->
   <script src="/scripts/factories/MediaFactory.js"></script>
   <!-- models  -->
