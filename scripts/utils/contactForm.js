@@ -10,7 +10,6 @@ const validForm = () => {
     const formData = document.querySelectorAll(".formData"); //Sélectionne tous les éléments du DOM avec la classe "formData" et les assigne à la variable constante "formData".
     var formValid = []; //Déclare une variable "formValid" comme un tableau vide.
     const mailValid = /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$/; //Définit une expression régulière pour valider une adresse e-mail.
-    const fData = element.parentElement;
 
     const setError = (element, message) => { //Déclare une fonction fléchée "setError" qui prend un élément du formulaire et un message d'erreur, puis affiche le message d'erreur et applique des classes CSS pour indiquer une erreur.
         const formData = element.parentElement;

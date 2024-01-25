@@ -17,11 +17,16 @@ function displayPhotographerInfo(photographer) {
     const photographerLocation = document.querySelector("#photographer-location");
     const photographerTagline = document.querySelector("#photographer-desc");
     const photographerImg = document.querySelector("#photographer-photo");
-    photographerName.innerText = photographer.name;
-    photographerLocation.innerText = photographer.city+", "+photographer.country;
-    photographerTagline.innerText = photographer.tagline;
-    photographerImg.src = `assets/photographers/Sample Photos/Photographers ID Photos/${photographer.portrait}`;
-    photographerImg.alt = photographer.name;
+
+    if (photographer) {
+        photographerName.innerText = photographer.name;
+        photographerLocation.innerText = photographer.city + ", " + photographer.country;
+        photographerTagline.innerText = photographer.tagline;
+        photographerImg.src = `assets/photographers/Sample_Photos/Photographers ID Photos/${photographer.portrait}`;
+        photographerImg.alt = photographer.name;
+    } else {
+        console.error("Photographer object is undefined.");
+    }
 }
 
 function displayModal() {
@@ -31,7 +36,7 @@ function displayModal() {
 async function init() {
     // Récupère les datas des photographes
     const photographer = await getPhotographer();
-    console.log(photographer);
+    // console.log(photographer);
     displayPhotographerInfo(photographer);
     const contactBtn = document.querySelector("#contact");
     contactBtn.addEventListener("click", displayModal);
