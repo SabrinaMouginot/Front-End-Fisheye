@@ -3,7 +3,7 @@
 function photographerTemplate(data) {
     const { name, portrait, city, country, tagline, price } = data;
 
-    const picture = `assets/photographers/Sample Photos/Photographers ID Photos/${portrait}`;
+    const picture = `assets/photographers/Sample_Photos/Photographers ID Photos/${portrait}`;
 
     function getUserCardDOM(id) {
         const article = document.createElement('article');
@@ -53,5 +53,6 @@ function photographerTemplate(data) {
 
     return { name, picture, getUserCardDOM };
 }
+
 
 
