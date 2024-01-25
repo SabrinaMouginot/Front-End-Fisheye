@@ -9,4 +9,17 @@ class TypedataFactory {
             throw "Unknow format type !" 
         }
     }
+
+
+    // generateMediaHTML() {
+    //     const photographerMedia = new PhotographerMedia(this._media);
+
+    //     if (this._media.image) {
+    //         return photographerMedia.generateImageHTML();
+    //     } else if (this._media.video) {
+    //         return photographerMedia.generateVideoHTML();
+    //     } else {
+    //         throw "Type de format inconnu !";
+    //     }
+    // }
 }

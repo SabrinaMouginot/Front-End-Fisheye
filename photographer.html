@@ -23,6 +23,9 @@
       <button class="contact_button" id="contact">Contactez-moi</button>
       <img id="photographer-photo">
     </div>
+    <div id="mediaContainer">
+      <!-- affichage des médias du photographe  -->
+    </div>
   </main>
   <dialog id="contact_modal" class="modal">
       <header>
@@ -33,22 +36,22 @@
         <div class="formData">
           <label for="first">Prénom</label>
           <input class="text-control" type="text" id="first" name="first" minlength="2" />
-          <span class="errorMessage"></span>
+          <span id="errorMessage" style="color: red;"></span>
         </div>
         <div class="formData">
           <label for="last">Nom</label>
           <input class="text-control" type="text" id="last" name="last" />
-          <span class="errorMessage"></span>
+          <span id="errorMessage" style="color: red;"></span>
         </div>
         <div class="formData">
           <label for="email">E-mail</label>
           <input class="text-control" type="email" id="email" name="email" />
-          <span class="errorMessage"></span>
+          <span id="errorMessage" style="color: red;"></span>
         </div>
         <div>
           <label for="message">Votre message</label>
           <textarea name="message" class="text-control" id="message" cols="30" rows="10"></textarea>
-          <span class="errorMessage"></span>
+          <span id="errorMessage" style="color: red;"></span>
         </div>
         <button class="contact_button" type="submit">Envoyer</button>
       </form>

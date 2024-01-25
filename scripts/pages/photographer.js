@@ -24,7 +24,9 @@ function displayPhotographerInfo(photographer) {
         photographerTagline.innerText = photographer.tagline;
         photographerImg.src = `assets/photographers/Sample_Photos/Photographers ID Photos/${photographer.portrait}`;
         photographerImg.alt = photographer.name;
+ 
     } else {
+        // errorMessage.innerText = "Photographer object is undefined.";
         console.error("Photographer object is undefined.");
     }
 }
@@ -38,10 +40,45 @@ async function init() {
     const photographer = await getPhotographer();
     // console.log(photographer);
     displayPhotographerInfo(photographer);
+
     const contactBtn = document.querySelector("#contact");
     contactBtn.addEventListener("click", displayModal);
+
+
+
+    
+    // Récupère et affiche les médias du photographe
+    const mediaDataImage = await fetch(`http://127.0.0.1:5500/assets/photographers/Sample_Photos/${photographer.name}/${photographer.image}`).then(res => res.blob());
+    const mediaDataVideo = await fetch(`http://127.0.0.1:5500/assets/photographers/Sample_Photos/${photographer.name}/${photographer.video}`).then(res => res.blob());
+
+    // mediaData.forEach(media => {
+    //     const mediaFactory = new TypedataFactory({ image: media.image, video: media.video });
+    //     const mediaHTML = mediaFactory.generateMediaHTML();
+
+    //     // Ajoute le HTML des médias à un conteneur dans votre page de photographe
+    //     // Remplacez 'mediaContainer' par l'ID ou la classe réelle du conteneur où vous souhaitez afficher les médias
+    //     document.getElementById('mediaContainer').innerHTML += mediaHTML;
+    // });
+
+
+    
+    // Vérifiez si la réponse est un objet JSON, sinon, traitez directement comme un média
+    if (mediaData) {
+        mediaData.forEach(media => {
+            const mediaFactory = new TypedataFactory({ image: media.image, video: media.video });
+            const mediaHTML = mediaFactory.generateMediaHTML();
+
+            // Ajoute le HTML des médias à un conteneur dans votre page de photographe
+            // Remplacez 'mediaContainer' par l'ID ou la classe réelle du conteneur où vous souhaitez afficher les médias
+            mediaContainer.innerHTML += mediaHTML;
+        });
+    } else {
+        console.error("No media data available.");
+    }
+
 }
 
 
 
 init();
+
