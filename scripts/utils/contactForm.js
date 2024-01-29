@@ -1,3 +1,8 @@
+const form = document.querySelector('#form')
+
+function displayModal() {
+    dialog.showModal();
+}
 //Je crée une fonction pour la fermeture de la modale de contact
 function closeModal() {
     const dialog = document.querySelector("#contact_modal");
@@ -6,11 +11,10 @@ function closeModal() {
 
 
 //Je crée une fonction pour gérer les cas d'erreur dans le formulaire de contact
-const validForm = () => {
-    const formData = document.querySelectorAll(".formData"); //Sélectionne tous les éléments du DOM avec la classe "formData" et les assigne à la variable constante "formData".
-    var formValid = []; //Déclare une variable "formValid" comme un tableau vide.
+const validForm = (event) => {
+    event.preventDefault()
     const mailValid = /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$/; //Définit une expression régulière pour valider une adresse e-mail.
-
+    let errors = 0;
     const setError = (element, message) => { //Déclare une fonction fléchée "setError" qui prend un élément du formulaire et un message d'erreur, puis affiche le message d'erreur et applique des classes CSS pour indiquer une erreur.
         const formData = element.parentElement;
         const errorDisplay = formData.querySelector('.errorMessage');
@@ -18,6 +22,7 @@ const validForm = () => {
         errorDisplay.innerHTML = message;
         formData.classList.add("error");
         formData.classList.remove("success");
+        errors++;
     }
     
     const setSuccess = (element) => { //Déclare une fonction fléchée "setSuccess" qui prend un élément du formulaire, puis efface tout message d'erreur et applique des classes CSS pour indiquer un succès.
@@ -27,10 +32,9 @@ const validForm = () => {
         errorDisplay.innerHTML = "";
         formData.classList.add("success");
         formData.classList.remove("error");
+        errors--;
     }
     
-
-    const success = document.querySelectorAll(".success"); //Sélectionne tous les éléments du DOM avec la classe "success" et les assigne à la variable constante "success".
     const firstName = document.getElementById('first'); //Récupère l'élément du DOM avec l'ID "prenom" et l'assigne à la variable constante "firstName".
     const lastName = document.getElementById('last'); //Récupère l'élément du DOM avec l'ID "nom" et l'assigne à la variable constante "lastName".
     const mail = document.getElementById('email'); //Récupère l'élément du DOM avec l'ID "email" et l'assigne à la variable constante "mail".
@@ -60,5 +64,11 @@ const validForm = () => {
     } else {
         setSuccess(messageForm);
     }
-
+    
+    if(errors <=0) {
+        console.log(firstName.value, lastName.value, mail.value, messageForm.value)
+        closeModal()
+    }
 }
+
+form.addEventListener("submit", validForm)
