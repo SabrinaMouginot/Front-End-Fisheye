@@ -1,8 +1,5 @@
 const form = document.querySelector('#form')
 
-function displayModal() {
-    dialog.showModal();
-}
 //Je crée une fonction pour la fermeture de la modale de contact
 function closeModal() {
     const dialog = document.querySelector("#contact_modal");
