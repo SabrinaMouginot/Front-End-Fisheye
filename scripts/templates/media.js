@@ -1,37 +1,21 @@
-// Je défini le modèle de construction pour l'appel des medias  
-class PhotographerMedia {
-    constructor(media) {
-        this._photographerId = media.photographerId
-        this._title = media.title
-        this._image = media.image
-        this._video = media.video
-        this._date = media.date
-        this._price = media.price
-        this._id = media.id
+function mediaTemplate(data, portrait) {
+    const picture = `assets/photographers/Sample_Photos/Photographers ID Photos/${portrait}`;
+    function getMediaCardDOM() {
+        const article = document.createElement('article');
+        const img = document.createElement('img');
+        const div = document.createElement('div');
+        const mediaTitle = document.createElement('h3');
+        const nbLikes = document.createElement('span');
+        const btnLike = document.createElement('i');
+
+        article.appendChild(img)
+        article.appendChild(div)
+        div.appendChild(mediaTitle)
+        div.appendChild(nbLikes)
+        div.appendChild(btnLike)
+
+        return article;
     }
 
-
-
-        // // Générer le HTML pour une image
-        // generateImageHTML() {
-        //     return `<img src="${this._image}" alt="${this._title}">`;
-        // }
-    
-        // // Générer le HTML pour une vidéo
-        // generateVideoHTML() {
-        //     return `<video controls>
-        //                 <source src="${this._video}" type="video/mp4">
-        //                 Votre navigateur ne prend pas en charge la balise vidéo.
-        //             </video>`;
-        // }
-
-
-    // get photographerId() {
-    //     return this._photographerId
-    // }
-
-    // get title() {
-    //     return this._title
-    // }
-
+    return { getMediaCardDOM };
 }
