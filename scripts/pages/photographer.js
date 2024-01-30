@@ -32,7 +32,7 @@ function displayPhotographerInfo(photographer) {
         photographerTagline.innerText = photographer.tagline;
         photographerImg.src = `assets/photographers/Sample_Photos/Photographers ID Photos/${photographer.portrait}`;
         photographerImg.alt = photographer.name;
- 
+
     } else {
         // errorMessage.innerText = "Photographer object is undefined.";
         console.error("Photographer object is undefined.");
@@ -50,17 +50,22 @@ function displayMedias(media) {
         })
     } else {
         console.error("No media data available.");
-        }
+    }
 }
 
+async function displayModal() {
+    const contactModal = document.querySelector('#contact_modal');
+    contactModal.showModal();
+}
+
+
 async function init() {
-    // const { media } = await getPhotographerMedias();
-    // displayMedias(media);
+
     // Récupère les datas des photographes
     const photographer = await getPhotographer();
     displayPhotographerInfo(photographer);
 
-    const contactBtn = document.querySelector(".contact");
+    const contactBtn = document.querySelector("#contact");
     contactBtn.addEventListener("click", displayModal);
 
     const media = await getPhotographerMedias();
