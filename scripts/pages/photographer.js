@@ -40,13 +40,13 @@ function displayPhotographerInfo(photographer) {
 }
 
 function displayMedias(media) {
-    const mediasSection = document.querySelector(".media_section")
+    const mediaSection = document.querySelector(".media_section")
     // Vérifiez si la réponse est un objet JSON, sinon, traitez directement comme un média
     if (media) {
         media.forEach(media => {
-            const mediaModel = mediaTemplate(media);
-            const mediaCardDOM = mediaModel.getMediaCardDOM(media.photographerId); 
-            mediasSection.appendChild(mediaCardDOM); 
+            // const mediaModel = mediaTemplate(media);
+            // const mediaCardDOM = mediaModel.getMediaCardDOM(media.photographerId); 
+            // mediaSection.appendChild(mediaCardDOM); 
         })
     } else {
         console.error("No media data available.");
@@ -54,16 +54,18 @@ function displayMedias(media) {
 }
 
 async function init() {
-    const { media } = await getPhotographerMedias();
+    // const { media } = await getPhotographerMedias();
+    // displayMedias(media);
     // Récupère les datas des photographes
     const photographer = await getPhotographer();
     displayPhotographerInfo(photographer);
 
-    const contactBtn = document.querySelector("#contact");
+    const contactBtn = document.querySelector(".contact");
     contactBtn.addEventListener("click", displayModal);
 
-    const medias = await getPhotographerMedias();
+    const media = await getPhotographerMedias();
     displayMedias(media);
+
 }
 
 init();
