@@ -14,6 +14,16 @@ function mediaTemplate(data, portrait) {
         div.appendChild(nbLikes)
         div.appendChild(btnLike)
 
+
+        // const mediaElement = media.type === 'image' ? document.createElement('img') : document.createElement('video');
+        
+        // mediaElement.src = `assets/${media.type}s/${media.fileName}`;
+        // mediaElement.alt = media.title;
+        // mediaElement.controls = true;
+
+        // article.appendChild(mediaElement);
+
+
         return article;
     }
 
