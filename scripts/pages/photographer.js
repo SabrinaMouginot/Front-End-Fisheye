@@ -62,12 +62,12 @@ function displayMedias(media) {
 
         if (mediaItem.image) {
             const imageElement = document.createElement("img");
-            imageElement.src = `assets/photographers/${mediaItem.image}`;
+            imageElement.src = `assets/photographers/Sample_Photos/Elie_Rose/${mediaItem.image}`;
             imageElement.alt = mediaItem.title;
             mediaElement.appendChild(imageElement);
         } else if (mediaItem.video) {
             const videoElement = document.createElement("video");
-            videoElement.src = `assets/photographers/${mediaItem.video}`;
+            videoElement.src = `assets/photographers/Sample_Photos/Elie_Rose/${mediaItem.video}`;
             videoElement.controls = true;
             videoElement.alt = mediaItem.title;
             mediaElement.appendChild(videoElement);
@@ -120,4 +120,3 @@ async function init() {
 }
 
 init();
-
