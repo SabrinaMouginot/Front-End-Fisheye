@@ -60,6 +60,9 @@ function displayMedias(media) {
         const mediaElement = document.createElement("div");
         mediaElement.classList.add("media-item");
 
+        const mediaContent = document.createElement("div");
+        mediaContent.classList.add("media-content");
+
         if (mediaItem.image) {
             const imageElement = document.createElement("img");
             imageElement.src = `assets/photographers/Sample_Photos/Elie_Rose/${mediaItem.image}`;
@@ -75,13 +78,33 @@ function displayMedias(media) {
 
         const titleElement = document.createElement("h3");
         titleElement.innerText = mediaItem.title;
-        mediaElement.appendChild(titleElement);
+        // mediaElement.appendChild(titleElement);
 
         const likesElement = document.createElement("span");
         likesElement.innerText = `Likes: ${mediaItem.likes}`;
-        mediaElement.appendChild(likesElement);
 
+        mediaContent.appendChild(titleElement);
+        mediaContent.appendChild(likesElement);
+        
+        mediaElement.appendChild(mediaContent);
         mediaContainer.appendChild(mediaElement);
+    });
+
+    let mediaRow; // Variable pour stocker le conteneur de ligne actuel
+    media.forEach((mediaItem, index) => {
+        // Créez un nouveau conteneur de ligne pour chaque troisième média
+        if (index % 3 === 0) {
+            mediaRow = document.createElement("div");
+            mediaRow.classList.add("media-row");
+            mediaContainer.appendChild(mediaRow);
+        }
+
+        const mediaElement = document.createElement("div");
+        mediaElement.classList.add("media-item");
+
+        // Ajoutez le contenu de média à l'élément média ici
+
+        mediaRow.appendChild(mediaElement);
     });
 }
 
