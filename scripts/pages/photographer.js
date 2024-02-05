@@ -44,39 +44,39 @@ function displayMedias(medias, firstname) {
 
     medias.forEach((mediaItem) => {
         const mediaModel = mediaTemplate(mediaItem, firstname)
-
+        const mediaElement = mediaModel.getMediaCardDOM();
         mediaContainer.appendChild(mediaElement)
-        const mediaElement = document.createElement("div");
-        mediaElement.classList.add("media-item");
+        // const mediaElement = document.createElement("div");
+        // mediaElement.classList.add("media-item");
 
-        const mediaContent = document.createElement("div");
-        mediaContent.classList.add("media-content");
+        // const mediaContent = document.createElement("div");
+        // mediaContent.classList.add("media-content");
 
-        if (mediaItem.image) {
-            const imageElement = document.createElement("img");
-            imageElement.src = `assets/photographers/Sample_Photos/Elie_Rose/${mediaItem.image}`;
-            imageElement.alt = mediaItem.title;
-            mediaElement.appendChild(imageElement);
-        } else if (mediaItem.video) {
-            const videoElement = document.createElement("video");
-            videoElement.src = `assets/photographers/Sample_Photos/Elie_Rose/${mediaItem.video}`;
-            videoElement.controls = true;
-            videoElement.alt = mediaItem.title;
-            mediaElement.appendChild(videoElement);
-        }
+        // if (mediaItem.image) {
+        //     const imageElement = document.createElement("img");
+        //     imageElement.src = `assets/photographers/Sample_Photos/Elie_Rose/${mediaItem.image}`;
+        //     imageElement.alt = mediaItem.title;
+        //     mediaElement.appendChild(imageElement);
+        // } else if (mediaItem.video) {
+        //     const videoElement = document.createElement("video");
+        //     videoElement.src = `assets/photographers/Sample_Photos/Elie_Rose/${mediaItem.video}`;
+        //     videoElement.controls = true;
+        //     videoElement.alt = mediaItem.title;
+        //     mediaElement.appendChild(videoElement);
+        // }
 
-        const titleElement = document.createElement("h3");
-        titleElement.innerText = mediaItem.title;
-        // mediaElement.appendChild(titleElement);
+        // const titleElement = document.createElement("h3");
+        // titleElement.innerText = mediaItem.title;
+        // // mediaElement.appendChild(titleElement);
 
-        const likesElement = document.createElement("span");
-        likesElement.innerText = `Likes: ${mediaItem.likes}`;
+        // const likesElement = document.createElement("span");
+        // likesElement.innerText = `Likes: ${mediaItem.likes}`;
 
-        mediaContent.appendChild(titleElement);
-        mediaContent.appendChild(likesElement);
+        // mediaContent.appendChild(titleElement);
+        // mediaContent.appendChild(likesElement);
 
-        mediaElement.appendChild(mediaContent);
-        mediaContainer.appendChild(mediaElement);
+        // mediaElement.appendChild(mediaContent);
+        // mediaContainer.appendChild(mediaElement);
     });
 
     let mediaRow; // Variable pour stocker le conteneur de ligne actuel
