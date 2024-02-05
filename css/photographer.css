@@ -6,33 +6,31 @@
     margin: 0 100px;
     display: flex;
     /* justify-content: space-between; */
-    justify-content: space-around; 
+    justify-content: space-around;
     align-items: center;
 }
 
 /* LES FILTRES */
 
 #filterContainer {
-    margin-top: 30px;
     display: flex;
     align-items: center;
     margin: 100px;
-  }
-  
-  #filterContainer label {
+}
+
+#filterContainer label {
     font-size: 20px;
     margin-right: 10px;
-  }
-  
-  #filterSelect {
+}
+
+#filterSelect {
     color: white;
     background-color: #901C1C;
-    border: none;
     padding: 10px;
     border-radius: 5px;
     font-size: 16px;
-  }
-  
+    border: none;
+}
 
 /* LES MEDIAS */
 
@@ -49,9 +47,10 @@
 }
 
 .media-content {
-    display: flex; 
+    display: flex;
     align-items: center;
-    justify-content: space-between; /* Espacement égal entre les éléments */
+    justify-content: space-between;
+    /* Espacement égal entre les éléments */
     color: #901C1C;
 }
 
@@ -61,11 +60,13 @@
     font-size: 30px;
     margin-bottom: 10px;
 }
+
 #photographer-location {
     color: #901C1C;
     font-size: 15px;
     margin: 0;
 }
+
 #photographer-photo {
     height: 150px;
     width: 150px;
@@ -74,9 +75,10 @@
     overflow: hidden;
     margin: 25px 0;
 }
+
 #photographer-desc {
     margin: 20px 0;
-} 
+}
 
 /* MODAL DE CONTACT */
 
@@ -138,4 +140,3 @@ form input {
     border: none;
     border-radius: 5px;
 }
-
