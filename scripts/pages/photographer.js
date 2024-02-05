@@ -140,6 +140,28 @@ async function init() {
     const media = await getPhotographerMedias();
     displayMedias(media);
 
+
+// CREATION DES FILTRES
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const filterSelect = document.getElementById("filterSelect");
+      
+        filterSelect.addEventListener("change", function() {
+          const selectedOption = filterSelect.value;
+          // Appel de la fonction de filtrage appropriée en fonction de l'option sélectionnée
+          if (selectedOption === "popularity") {
+            // Fonction de filtrage par popularité
+            // Par exemple : filterByPopularity();
+          } else if (selectedOption === "date") {
+            // Fonction de filtrage par date
+            // Par exemple : filterByDate();
+          } else if (selectedOption === "title") {
+            // Fonction de filtrage par titre
+            // Par exemple : filterByTitle();
+          }
+        });
+      });
+
 }
 
 init();
