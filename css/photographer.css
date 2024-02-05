@@ -42,8 +42,13 @@
 }
 
 .media-item {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    display: flex;
+    flex-direction: column;
+}
+
+.media-item img, .media-item video {
+    height: 300px;
+    object-fit: cover;
 }
 
 .media-content {
