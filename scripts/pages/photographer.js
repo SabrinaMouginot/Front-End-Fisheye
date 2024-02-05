@@ -39,24 +39,13 @@ function displayPhotographerInfo(photographer) {
     }
 }
 
-// function displayMedias(media) {
-//     const mediaSection = document.querySelector(".media_section")
-//     // Vérifiez si la réponse est un objet JSON, sinon, traitez directement comme un média
-//     if (media) {
-//         media.forEach((media) => {
-//             // const mediaModel = mediaTemplate(media);
-//             // const mediaCardDOM = mediaModel.getMediaCardDOM(media.photographerId); 
-//             // mediaSection.appendChild(mediaCardDOM); 
-//         })
-//     } else {
-//         console.error("No media data available.");
-//     }
-// }
-
-function displayMedias(media) {
+function displayMedias(medias, firstname) {
     const mediaContainer = document.getElementById("mediaContainer");
 
-    media.forEach((mediaItem) => {
+    medias.forEach((mediaItem) => {
+        const mediaModel = mediaTemplate(mediaItem, firstname)
+
+        mediaContainer.appendChild(mediaElement)
         const mediaElement = document.createElement("div");
         mediaElement.classList.add("media-item");
 
@@ -85,13 +74,13 @@ function displayMedias(media) {
 
         mediaContent.appendChild(titleElement);
         mediaContent.appendChild(likesElement);
-        
+
         mediaElement.appendChild(mediaContent);
         mediaContainer.appendChild(mediaElement);
     });
 
     let mediaRow; // Variable pour stocker le conteneur de ligne actuel
-    media.forEach((mediaItem, index) => {
+    medias.forEach((mediaItem, index) => {
         // Créez un nouveau conteneur de ligne pour chaque troisième média
         if (index % 3 === 0) {
             mediaRow = document.createElement("div");
@@ -108,20 +97,6 @@ function displayMedias(media) {
     });
 }
 
-
-
-// async function displayMedias(medias) {
-//     const mediaContainer = document.getElementById('mediaContainer');
-
-//     medias.forEach(media => {
-//         const mediaModel = mediaTemplate(media);
-//         const mediaCardDOM = mediaModel.getMediaCardDOM();
-//         mediaContainer.appendChild(mediaCardDOM);
-//     });
-// }
-
-
-
 async function displayModal() {
     const contactModal = document.querySelector('#contact_modal');
     contactModal.showModal();
@@ -137,30 +112,30 @@ async function init() {
     const contactBtn = document.querySelector("#contact");
     contactBtn.addEventListener("click", displayModal);
 
-    const media = await getPhotographerMedias();
-    displayMedias(media);
+    const medias = await getPhotographerMedias();
+    displayMedias(medias, photographer.name.split(" ")[0].replace("-","_"));
 
 
-// CREATION DES FILTRES
+    // CREATION DES FILTRES
 
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         const filterSelect = document.getElementById("filterSelect");
-      
-        filterSelect.addEventListener("change", function() {
-          const selectedOption = filterSelect.value;
-          // Appel de la fonction de filtrage appropriée en fonction de l'option sélectionnée
-          if (selectedOption === "popularity") {
-            // Fonction de filtrage par popularité
-            // Par exemple : filterByPopularity();
-          } else if (selectedOption === "date") {
-            // Fonction de filtrage par date
-            // Par exemple : filterByDate();
-          } else if (selectedOption === "title") {
-            // Fonction de filtrage par titre
-            // Par exemple : filterByTitle();
-          }
+
+        filterSelect.addEventListener("change", function () {
+            const selectedOption = filterSelect.value;
+            // Appel de la fonction de filtrage appropriée en fonction de l'option sélectionnée
+            if (selectedOption === "popularity") {
+                // Fonction de filtrage par popularité
+                // Par exemple : filterByPopularity();
+            } else if (selectedOption === "date") {
+                // Fonction de filtrage par date
+                // Par exemple : filterByDate();
+            } else if (selectedOption === "title") {
+                // Fonction de filtrage par titre
+                // Par exemple : filterByTitle();
+            }
         });
-      });
+    });
 
 }
 
