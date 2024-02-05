@@ -1,3 +1,5 @@
+/* LE JOURNALISTE */
+
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
@@ -7,6 +9,32 @@
     justify-content: space-around; 
     align-items: center;
 }
+
+/* LES FILTRES */
+
+#filterContainer {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    margin: 100px;
+  }
+  
+  #filterContainer label {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  
+  #filterSelect {
+    color: white;
+    background-color: #901C1C;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+
+/* LES MEDIAS */
 
 .media-container {
     display: grid;
@@ -26,7 +54,6 @@
     justify-content: space-between; /* Espacement égal entre les éléments */
     color: #901C1C;
 }
-
 
 
 #photographer-name {
@@ -51,6 +78,7 @@
     margin: 20px 0;
 } 
 
+/* MODAL DE CONTACT */
 
 .contact_button {
     font-size: 20px;
