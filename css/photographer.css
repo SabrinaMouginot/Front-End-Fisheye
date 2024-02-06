@@ -10,6 +10,31 @@
     align-items: center;
 }
 
+#photographer-name {
+    color: #D3573C;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+#photographer-location {
+    color: #901C1C;
+    font-size: 15px;
+    margin: 0;
+}
+
+#photographer-photo {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 25px 0;
+}
+
+#photographer-desc {
+    margin: 20px 0;
+}
+
 /* LES FILTRES */
 
 #filterContainer {
@@ -61,37 +86,21 @@
     object-fit: cover;
 }
 
+.media-content h3 {
+    margin-right: auto; /* Faites en sorte que le titre soit à gauche en prenant le maximum d'espace disponible */
+}
+
+.media-content span + i {
+    margin-left: 5px; /* Ajoutez une marge à gauche de l'icône de cœur */
+}
+
+
+
 .media-content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     color: #901C1C;
-}
-
-
-#photographer-name {
-    color: #D3573C;
-    font-size: 30px;
-    margin-bottom: 10px;
-}
-
-#photographer-location {
-    color: #901C1C;
-    font-size: 15px;
-    margin: 0;
-}
-
-#photographer-photo {
-    height: 150px;
-    width: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 25px 0;
-}
-
-#photographer-desc {
-    margin: 20px 0;
 }
 
 /* MODAL DE CONTACT */

@@ -26,6 +26,11 @@ function mediaTemplate(data, firstname) {
         mediaTitle.innerText = data.title;
         nbLikes.innerText = data.likes;
 
+
+ // Ajoutez la classe de l'icône de cœur et définissez son contenu Unicode ou utilisez une bibliothèque d'icônes
+ btnLike.classList.add("like-icon");
+ btnLike.innerHTML = "&#10084;"; // Exemple de cœur en utilisant Unicode
+
         article.appendChild(div)
         div.appendChild(mediaTitle)
         div.appendChild(nbLikes)
