@@ -113,7 +113,7 @@ async function init() {
     contactBtn.addEventListener("click", displayModal);
 
     const medias = await getPhotographerMedias();
-    displayMedias(medias, photographer.name.split(" ")[0].replace("-","_"));
+    displayMedias(medias, photographer.name.split(" ")[0].replace("-", "_"));
 
 
     // CREATION DES FILTRES
