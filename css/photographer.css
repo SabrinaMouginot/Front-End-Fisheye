@@ -94,6 +94,9 @@
     margin-left: 5px; /* Ajoutez une marge à gauche de l'icône de cœur */
 }
 
+.like-icon {
+    cursor: pointer; /* Change le curseur en une petite main avec le doigt tendu */
+}
 
 
 .media-content {

@@ -36,6 +36,12 @@ function mediaTemplate(data, firstname) {
         div.appendChild(nbLikes)
         div.appendChild(btnLike)
 
+    // Ajoutez un gestionnaire d'événements de clic à l'icône de cœur
+    btnLike.addEventListener('click', () => {
+        data.likes++; // Incrémentation du nombre de likes
+        nbLikes.innerText = data.likes; // Mise à jour du contenu du span
+    });
+
         return article;
     }
 
