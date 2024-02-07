@@ -37,9 +37,24 @@ function mediaTemplate(data, firstname) {
         div.appendChild(btnLike)
 
     // Ajoutez un gestionnaire d'événements de clic à l'icône de cœur
+    // btnLike.addEventListener('click', () => {
+    //     data.likes++; // Incrémentation du nombre de likes
+    //     nbLikes.innerText = data.likes; // Mise à jour du contenu du span
+    // });
+
+    let isLiked = false; // Variable pour garder une trace de l'état du cœur
+
+    // Ajoutez un gestionnaire d'événements de clic à l'icône de cœur
     btnLike.addEventListener('click', () => {
-        data.likes++; // Incrémentation du nombre de likes
-        nbLikes.innerText = data.likes; // Mise à jour du contenu du span
+        if (!isLiked) {
+            data.likes++; // Incrémentation du nombre de likes si le cœur n'a pas encore été cliqué
+            nbLikes.innerText = data.likes; // Mise à jour du contenu du span
+            isLiked = true; // Mettre à jour l'état du cœur à "liké"
+        } else {
+            data.likes--; // Décrémentation du nombre de likes si le cœur a déjà été cliqué
+            nbLikes.innerText = data.likes; // Mise à jour du contenu du span
+            isLiked = false; // Mettre à jour l'état du cœur à "non liké"
+        }
     });
 
         return article;
