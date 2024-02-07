@@ -21,7 +21,7 @@
         <p id="photographer-desc"></p>
       </div>
       <button class="contact_button" id="contact">Contactez-moi</button>
-      <img id="photographer-photo" >
+      <img id="photographer-photo">
     </div>
 
     <div id="filterContainer">
@@ -33,40 +33,51 @@
         <option value="title">Titre</option>
       </select>
     </div>
-    
+
 
     <div id="mediaContainer" class="media-container">
       <!-- affichage des médias du photographe  -->
     </div>
+
+
+    <!-- Modal compteur de likes-->
+    <div id="photographerLikes" class="likes">
+      <div class="likes-content">
+        <div id="likesContent">
+          <!-- affichage compteur total des Likes -->
+        </div>
+      </div>
+    </div>
+
   </main>
   <dialog id="contact_modal" class="modal">
-      <header>
-        <h2>Contactez-moi</h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
-      </header>
-      <form name="reserve" id="form">
-        <div class="formData">
-          <label for="first">Prénom</label>
-          <input class="text-control" type="text" id="first" name="first" minlength="2" />
-          <span class="errorMessage" ></span>
-        </div>
-        <div class="formData">
-          <label for="last">Nom</label>
-          <input class="text-control" type="text" id="last" name="last" />
-          <span class="errorMessage"></span>
-        </div>
-        <div class="formData">
-          <label for="email">E-mail</label>
-          <input class="text-control" type="email" id="email" name="email" />
-          <span class="errorMessage" ></span>
-        </div>
-        <div>
-          <label for="message">Votre message</label>
-          <textarea name="message" class="text-control" id="message" cols="30" rows="10"></textarea>
-          <span class="errorMessage"></span>
-        </div>
-        <button class="contact_button" type="submit">Envoyer</button>
-      </form>
+    <header>
+      <h2>Contactez-moi</h2>
+      <img src="assets/icons/close.svg" onclick="closeModal()" />
+    </header>
+    <form name="reserve" id="form">
+      <div class="formData">
+        <label for="first">Prénom</label>
+        <input class="text-control" type="text" id="first" name="first" minlength="2" />
+        <span class="errorMessage"></span>
+      </div>
+      <div class="formData">
+        <label for="last">Nom</label>
+        <input class="text-control" type="text" id="last" name="last" />
+        <span class="errorMessage"></span>
+      </div>
+      <div class="formData">
+        <label for="email">E-mail</label>
+        <input class="text-control" type="email" id="email" name="email" />
+        <span class="errorMessage"></span>
+      </div>
+      <div>
+        <label for="message">Votre message</label>
+        <textarea name="message" class="text-control" id="message" cols="30" rows="10"></textarea>
+        <span class="errorMessage"></span>
+      </div>
+      <button class="contact_button" type="submit">Envoyer</button>
+    </form>
   </dialog>
 
   <!-- models  -->

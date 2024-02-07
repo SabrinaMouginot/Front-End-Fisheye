@@ -1,5 +1,3 @@
-//Mettre le code JavaScript lié à la page photographer.html
-
 const urlParams = new URLSearchParams(window.location.search);
 const photographerId = urlParams.get('id');
 const dialog = document.querySelector("#contact_modal");
@@ -96,6 +94,19 @@ function displayMedias(medias, firstname) {
         mediaRow.appendChild(mediaElement);
     });
 }
+
+
+
+  // Dynamically populate modal content
+  function populateModal(likes, price) {
+    var likesContent = document.getElementById("likesContent");
+    likesContent.innerHTML = `
+      <p>${likes} :"&#10084;"</p>
+      <p>Price: ${price} € / day</p>
+    `;
+  }
+  
+
 
 async function displayModal() {
     const contactModal = document.querySelector('#contact_modal');
