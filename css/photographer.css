@@ -109,18 +109,21 @@
 
 /* MODAL COMPTEUR DE LIKES */
 .likes {
-    position: fixed; /* Stay in place */
-    bottom: 13px; /* Place it at the bottom */
-    right: 13px; /* Place it on the right */
+    position: fixed; 
+    bottom: 0px; 
+    right: 25px; 
     width: 376px;
     height: 89px;
     background-color: rgb(219, 136, 118);
     border-radius: 5px;
-    z-index: 9999; /* Ensure it stays above other elements */
+    z-index: 9999; 
   }
   
   /* Modal Content */
   .likesContent {
+    display: flex;
+    justify-content:space-around;
+    /* align-content: center; */
     padding: 10px;
     color: black;
   }

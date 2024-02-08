@@ -97,15 +97,19 @@ function displayMedias(medias, firstname) {
 
 
 
-  // Dynamically populate modal content
+
+   // Dynamically populate modal content
   function populateModal(likes, price) {
     var likesContent = document.getElementById("likesContent");
     likesContent.innerHTML = `
-      <p>${likes} :"&#10084;"</p>
-      <p>Price: ${price} € / day</p>
+      <p>${likes} "&#10084;"</p>
+      <p>${price} € / jour</p>
     `;
   }
-  
+  console.log(likesContent);
+
+
+
 
 
 async function displayModal() {
@@ -113,9 +117,7 @@ async function displayModal() {
     contactModal.showModal();
 }
 
-
 async function init() {
-
     // Récupère les datas des photographes
     const photographer = await getPhotographer();
     displayPhotographerInfo(photographer);
@@ -128,7 +130,6 @@ async function init() {
 
 
     // CREATION DES FILTRES
-
     document.addEventListener("DOMContentLoaded", function () {
         const filterSelect = document.getElementById("filterSelect");
 
