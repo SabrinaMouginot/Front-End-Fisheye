@@ -19,29 +19,16 @@ async function getPhotographerMedias() {
 }
 
 
-// async function displayModal() {
-//     const contactModal = document.querySelector('#contact_modal');
-
-//     // Récupérer le prix du photographe
-//     const photographer = await getPhotographer();
-//     const photographerPrice = photographer.price;
-
-//     // Afficher le prix dans la modal de compteur de likes
-//     const photographersLikes = document.querySelector('.photographersLikes');
-//     const priceSpan = document.createElement('span');
-//     priceSpan.innerText = `${photographerPrice} €`;
-//     photographersLikes.appendChild(priceSpan);
-
-//     contactModal.showModal();
-// }
-
-
 
 function displayPhotographerInfo(photographer) {
     const photographerName = document.querySelector("#photographer-name");
     const photographerLocation = document.querySelector("#photographer-location");
     const photographerTagline = document.querySelector("#photographer-desc");
     const photographerImg = document.querySelector("#photographer-photo");
+
+    const photographersLikes = document.querySelector('.photographersLikes');
+    // const totalLikesSpan = document.createElement('span');
+    const priceSpan = document.createElement('span');
 
     if (photographer) {
         photographerName.innerText = photographer.name;
@@ -50,10 +37,8 @@ function displayPhotographerInfo(photographer) {
         photographerImg.src = `assets/photographers/Sample_Photos/Photographers ID Photos/${photographer.portrait}`;
         photographerImg.alt = photographer.name;
 
-        
+
         // Afficher le prix du photographe dans la modal de likes
-        const photographersLikes = document.querySelector('.photographersLikes');
-        const priceSpan = document.createElement('span');
         priceSpan.innerText = `${photographer.price} €/jour`;
         photographersLikes.appendChild(priceSpan);
 
@@ -64,45 +49,48 @@ function displayPhotographerInfo(photographer) {
     }
 }
 
+
+
 function displayMedias(medias, firstname) {
     const mediaContainer = document.getElementById("mediaContainer");
+    let totalLikes = 0; // Initialiser le total des likes
+
+    medias.forEach((mediaItem) => {
+        const mediaModel = mediaTemplate(mediaItem, firstname);
+        const mediaElement = mediaModel.getMediaCardDOM();
+        mediaContainer.appendChild(mediaElement);
+
+        // Ajouter les likes de chaque média au total
+        totalLikes += mediaItem.likes;
+    });
+
+    // Afficher le total des likes dans la modal de likes
+    const likesContent = document.getElementById("likesContent");
+    const totalLikesSpan = document.createElement("span");
+    totalLikesSpan.innerText = `Total Likes: ${totalLikes}`;
+    likesContent.appendChild(totalLikesSpan);
+}
+
+
+
+function displayMedias(medias, firstname) {
+    const mediaContainer = document.getElementById("mediaContainer");
+    let totalLikes = 0; // Initialiser le total des likes
 
     medias.forEach((mediaItem) => {
         const mediaModel = mediaTemplate(mediaItem, firstname)
         const mediaElement = mediaModel.getMediaCardDOM();
         mediaContainer.appendChild(mediaElement)
-        // const mediaElement = document.createElement("div");
-        // mediaElement.classList.add("media-item");
 
-        // const mediaContent = document.createElement("div");
-        // mediaContent.classList.add("media-content");
-
-        // if (mediaItem.image) {
-        //     const imageElement = document.createElement("img");
-        //     imageElement.src = `assets/photographers/Sample_Photos/Elie_Rose/${mediaItem.image}`;
-        //     imageElement.alt = mediaItem.title;
-        //     mediaElement.appendChild(imageElement);
-        // } else if (mediaItem.video) {
-        //     const videoElement = document.createElement("video");
-        //     videoElement.src = `assets/photographers/Sample_Photos/Elie_Rose/${mediaItem.video}`;
-        //     videoElement.controls = true;
-        //     videoElement.alt = mediaItem.title;
-        //     mediaElement.appendChild(videoElement);
-        // }
-
-        // const titleElement = document.createElement("h3");
-        // titleElement.innerText = mediaItem.title;
-        // // mediaElement.appendChild(titleElement);
-
-        // const likesElement = document.createElement("span");
-        // likesElement.innerText = `Likes: ${mediaItem.likes}`;
-
-        // mediaContent.appendChild(titleElement);
-        // mediaContent.appendChild(likesElement);
-
-        // mediaElement.appendChild(mediaContent);
-        // mediaContainer.appendChild(mediaElement);
+        // Ajouter les likes de chaque média au total
+        totalLikes += mediaItem.likes;
     });
+
+    // Afficher le total des likes dans la modal de likes
+    const likesContent = document.getElementById("likesContent");
+    const totalLikesSpan = document.createElement("span");
+    totalLikesSpan.innerText = `Total Likes: ${totalLikes}`;
+    likesContent.appendChild(totalLikesSpan);
 
     let mediaRow; // Variable pour stocker le conteneur de ligne actuel
     medias.forEach((mediaItem, index) => {

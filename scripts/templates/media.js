@@ -36,11 +36,7 @@ function mediaTemplate(data, firstname) {
         div.appendChild(nbLikes)
         div.appendChild(btnLike)
 
-        // Ajoutez un gestionnaire d'événements de clic à l'icône de cœur
-        // btnLike.addEventListener('click', () => {
-        //     data.likes++; // Incrémentation du nombre de likes
-        //     nbLikes.innerText = data.likes; // Mise à jour du contenu du span
-        // });
+
 
         let isLiked = false; // Variable pour garder une trace de l'état du cœur
 
@@ -56,21 +52,6 @@ function mediaTemplate(data, firstname) {
                 isLiked = false; // Mettre à jour l'état du cœur à "non liké"
             }
         });
-
-
-
-        // nbLikes.innerText = data.likes; // Cette ligne affiche le nombre de likes, vous pouvez ajouter le prix à côté
-
-        // // Ajoutez une ligne pour afficher le prix du photographe
-        // const photographerPrice = document.createElement('span');
-        // photographerPrice.innerText = data.price + "€"; // Assurez-vous que data.price est correctement initialisé
-        // div.appendChild(photographerPrice); // Ajoutez le prix à l'intérieur de la div
-
-        // // Ajoutez la classe de l'icône de cœur et définissez son contenu Unicode ou utilisez une bibliothèque d'icônes
-        // btnLike.classList.add("like-icon");
-        // btnLike.innerHTML = "&#10084;"; // Exemple de cœur en utilisant Unicode
-
-
 
         return article;
     }
