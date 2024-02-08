@@ -57,6 +57,21 @@ function mediaTemplate(data, firstname) {
             }
         });
 
+
+
+        // nbLikes.innerText = data.likes; // Cette ligne affiche le nombre de likes, vous pouvez ajouter le prix à côté
+
+        // // Ajoutez une ligne pour afficher le prix du photographe
+        // const photographerPrice = document.createElement('span');
+        // photographerPrice.innerText = data.price + "€"; // Assurez-vous que data.price est correctement initialisé
+        // div.appendChild(photographerPrice); // Ajoutez le prix à l'intérieur de la div
+
+        // // Ajoutez la classe de l'icône de cœur et définissez son contenu Unicode ou utilisez une bibliothèque d'icônes
+        // btnLike.classList.add("like-icon");
+        // btnLike.innerHTML = "&#10084;"; // Exemple de cœur en utilisant Unicode
+
+
+
         return article;
     }
 

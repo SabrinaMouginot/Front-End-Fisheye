@@ -18,6 +18,25 @@ async function getPhotographerMedias() {
     return medias;
 }
 
+
+// async function displayModal() {
+//     const contactModal = document.querySelector('#contact_modal');
+
+//     // Récupérer le prix du photographe
+//     const photographer = await getPhotographer();
+//     const photographerPrice = photographer.price;
+
+//     // Afficher le prix dans la modal de compteur de likes
+//     const photographersLikes = document.querySelector('.photographersLikes');
+//     const priceSpan = document.createElement('span');
+//     priceSpan.innerText = `${photographerPrice} €`;
+//     photographersLikes.appendChild(priceSpan);
+
+//     contactModal.showModal();
+// }
+
+
+
 function displayPhotographerInfo(photographer) {
     const photographerName = document.querySelector("#photographer-name");
     const photographerLocation = document.querySelector("#photographer-location");
@@ -30,6 +49,14 @@ function displayPhotographerInfo(photographer) {
         photographerTagline.innerText = photographer.tagline;
         photographerImg.src = `assets/photographers/Sample_Photos/Photographers ID Photos/${photographer.portrait}`;
         photographerImg.alt = photographer.name;
+
+        
+        // Afficher le prix du photographe dans la modal de likes
+        const photographersLikes = document.querySelector('.photographersLikes');
+        const priceSpan = document.createElement('span');
+        priceSpan.innerText = `${photographer.price} €/jour`;
+        photographersLikes.appendChild(priceSpan);
+
 
     } else {
         // errorMessage.innerText = "Photographer object is undefined.";
@@ -94,22 +121,6 @@ function displayMedias(medias, firstname) {
         mediaRow.appendChild(mediaElement);
     });
 }
-
-
-
-
-   // Dynamically populate modal content
-  function populateModal(likes, price) {
-    var likesContent = document.getElementById("likesContent");
-    likesContent.innerHTML = `
-      <p>${likes} "&#10084;"</p>
-      <p>${price} € / jour</p>
-    `;
-  }
-  console.log(likesContent);
-
-
-
 
 
 async function displayModal() {
