@@ -56,28 +56,6 @@ function displayMedias(medias, firstname) {
     let totalLikes = 0; // Initialiser le total des likes
 
     medias.forEach((mediaItem) => {
-        const mediaModel = mediaTemplate(mediaItem, firstname);
-        const mediaElement = mediaModel.getMediaCardDOM();
-        mediaContainer.appendChild(mediaElement);
-
-        // Ajouter les likes de chaque média au total
-        totalLikes += mediaItem.likes;
-    });
-
-    // Afficher le total des likes dans la modal de likes
-    const likesContent = document.getElementById("likesContent");
-    const totalLikesSpan = document.createElement("span");
-    totalLikesSpan.innerText = `Total Likes: ${totalLikes}`;
-    likesContent.appendChild(totalLikesSpan);
-}
-
-
-
-function displayMedias(medias, firstname) {
-    const mediaContainer = document.getElementById("mediaContainer");
-    let totalLikes = 0; // Initialiser le total des likes
-
-    medias.forEach((mediaItem) => {
         const mediaModel = mediaTemplate(mediaItem, firstname)
         const mediaElement = mediaModel.getMediaCardDOM();
         mediaContainer.appendChild(mediaElement)
@@ -89,7 +67,7 @@ function displayMedias(medias, firstname) {
     // Afficher le total des likes dans la modal de likes
     const likesContent = document.getElementById("likesContent");
     const totalLikesSpan = document.createElement("span");
-    totalLikesSpan.innerText = `Total Likes: ${totalLikes}`;
+    totalLikesSpan.innerHTML = `${totalLikes} &#10084;`; // Cœur noir Unicode
     likesContent.appendChild(totalLikesSpan);
 
     let mediaRow; // Variable pour stocker le conteneur de ligne actuel
