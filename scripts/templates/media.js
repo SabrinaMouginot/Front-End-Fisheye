@@ -51,6 +51,7 @@ function mediaTemplate(data, firstname) {
                 nbLikes.innerText = data.likes; // Mise à jour du contenu du span
                 isLiked = false; // Mettre à jour l'état du cœur à "non liké"
             }
+
         });
 
         return article;
