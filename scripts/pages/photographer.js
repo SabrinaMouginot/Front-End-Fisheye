@@ -95,6 +95,11 @@ async function displayModal() {
 }
 
 async function init() {
+
+        // Initialiser la somme totale des likes dans la modale à zéro
+        document.getElementById("likesContent").innerHTML = '0 &#10084;';
+
+
     // Récupère les datas des photographes
     const photographer = await getPhotographer();
     displayPhotographerInfo(photographer);

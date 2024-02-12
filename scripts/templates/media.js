@@ -37,21 +37,27 @@ function mediaTemplate(data, firstname) {
         div.appendChild(btnLike)
 
 
+        function updateTotalLikesModal(change) {
+            const likesContent = document.getElementById("likesContent");
+            let totalLikes = parseInt(likesContent.innerHTML);
+            totalLikes += change;
+            likesContent.innerHTML = totalLikes + ' &#10084;';
+        }
 
         let isLiked = false; // Variable pour garder une trace de l'état du cœur
-
-        // Ajoutez un gestionnaire d'événements de clic à l'icône de cœur
+        
         btnLike.addEventListener('click', () => {
             if (!isLiked) {
-                data.likes++; // Incrémentation du nombre de likes si le cœur n'a pas encore été cliqué
-                nbLikes.innerText = data.likes; // Mise à jour du contenu du span
-                isLiked = true; // Mettre à jour l'état du cœur à "liké"
+                data.likes++;
+                nbLikes.innerText = data.likes;
+                isLiked = true;
+                updateTotalLikesModal(1); // Appel de la fonction de rappel avec +1
             } else {
-                data.likes--; // Décrémentation du nombre de likes si le cœur a déjà été cliqué
-                nbLikes.innerText = data.likes; // Mise à jour du contenu du span
-                isLiked = false; // Mettre à jour l'état du cœur à "non liké"
+                data.likes--;
+                nbLikes.innerText = data.likes;
+                isLiked = false;
+                updateTotalLikesModal(-1); // Appel de la fonction de rappel avec -1
             }
-
         });
 
         return article;
@@ -59,3 +65,6 @@ function mediaTemplate(data, firstname) {
 
     return { getMediaCardDOM };
 }
+
+
+
