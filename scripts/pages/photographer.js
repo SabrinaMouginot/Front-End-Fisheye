@@ -147,18 +147,55 @@ async function displayMedias(medias, firstname) {
     const mediaContainer = document.getElementById("mediaContainer");
     mediaContainer.innerHTML = ''; // Effacer le contenu actuel du conteneur
 
-    // TRI DES MEDIAS PAR POPULARITE (nombre de likes décroissant)
-    medias.sort((a, b) => b.likes - a.likes);
+
+    // TRI DES MEDIAS
+    const selectedOption = filterSelect.value;
+
+    if (selectedOption === "popularity") {
+        // Trier les médias par popularité (nombre de likes décroissant)
+        medias.sort((a, b) => b.likes - a.likes);
+    } else if (selectedOption === "title") {
+        // Trier les médias par titre (ordre alphabétique)
+        medias.sort((a, b) => a.title.localeCompare(b.title));
+    }
+
+    // let totalLikes = 0; // Initialiser le total des likes
+
+    // medias.forEach((mediaItem) => {
+    //     // Générer l'élément de média en utilisant la fonction de modèle du fichier media.js
+    //     const mediaModel = mediaTemplate(mediaItem, firstname)
+    //     const mediaElement = mediaModel.getMediaCardDOM();
+        
+    //     // Ajouter l'élément de média au conteneur
+    //     mediaContainer.appendChild(mediaElement);
+
+    //     // Ajouter les likes de chaque média au total
+    //     totalLikes += mediaItem.likes;
+    // });
+
+    // // Afficher le total des likes dans la modal de likes
+    // const likesContent = document.getElementById("likesContent");
+    // const totalLikesSpan = document.createElement("span");
+    // totalLikesSpan.innerHTML = `${totalLikes} &#10084;`; // Cœur noir Unicode
+    // likesContent.appendChild(totalLikesSpan);
 
     let totalLikes = 0; // Initialiser le total des likes
+    let mediaRow; // Variable pour stocker le conteneur de ligne actuel
 
-    medias.forEach((mediaItem) => {
+    medias.forEach((mediaItem, index) => {
+        // Créez un nouveau conteneur de ligne pour chaque troisième média
+        if (index % 3 === 0) {
+            mediaRow = document.createElement("div");
+            mediaRow.classList.add("media-row");
+            mediaContainer.appendChild(mediaRow);
+        }
+
         // Générer l'élément de média en utilisant la fonction de modèle du fichier media.js
-        const mediaModel = mediaTemplate(mediaItem, firstname)
+        const mediaModel = mediaTemplate(mediaItem, firstname);
         const mediaElement = mediaModel.getMediaCardDOM();
-        
-        // Ajouter l'élément de média au conteneur
-        mediaContainer.appendChild(mediaElement);
+
+        // Ajouter l'élément de média à la ligne actuelle
+        mediaRow.appendChild(mediaElement);
 
         // Ajouter les likes de chaque média au total
         totalLikes += mediaItem.likes;
@@ -169,23 +206,25 @@ async function displayMedias(medias, firstname) {
     const totalLikesSpan = document.createElement("span");
     totalLikesSpan.innerHTML = `${totalLikes} &#10084;`; // Cœur noir Unicode
     likesContent.appendChild(totalLikesSpan);
+// }
 
-    let mediaRow; // Variable pour stocker le conteneur de ligne actuel
-    medias.forEach((mediaItem, index) => {
-        // Créez un nouveau conteneur de ligne pour chaque troisième média
-        if (index % 3 === 0) {
-            mediaRow = document.createElement("div");
-            mediaRow.classList.add("media-row");
-            mediaContainer.appendChild(mediaRow);
-        }
+    // let mediaRow; // Variable pour stocker le conteneur de ligne actuel
+    // medias.forEach((mediaItem, index) => {
+    //     // Créez un nouveau conteneur de ligne pour chaque troisième média
+    //     if (index % 3 === 0) {
+    //         mediaRow = document.createElement("div");
+    //         mediaRow.classList.add("media-row");
+    //         mediaContainer.appendChild(mediaRow);
+    //     }
 
-        const mediaElement = document.createElement("div");
-        mediaElement.classList.add("media-item");
+    //     const mediaElement = document.createElement("div");
+    //     mediaElement.classList.add("media-item");
 
-        // Ajoutez le contenu de média à l'élément média ici
+    //     // Ajoutez le contenu de média à l'élément média ici
 
-        mediaRow.appendChild(mediaElement);
-    });
+    //     mediaRow.appendChild(mediaElement);
+    // });
+
 }
 
 
@@ -206,57 +245,25 @@ async function init() {
     displayMedias(medias, photographer.name.split(" ")[0].replace("-", "_"));
 
 
-/* TRIER EN FONCTION DE LA POPULARITE */
-// 1° Créez une fonction pour trier les médias par popularité (nombre de likes décroissant).
-// 2° Réorganisez les médias dans le conteneur en fonction de leur popularité.
-// 3° Appelez cette fonction lorsque l'option de tri par popularité est sélectionnée. 
-
-// // Fonction pour trier les médias par popularité (nombre de likes décroissant)
-// function sortByPopularity(medias) {
-//     return medias.sort((a, b) => b.likes - a.likes);
-// }
-
-// // Fonction pour réorganiser visuellement les médias en fonction de la popularité
-// function rearrangeMediaByPopularity() {
-//     const mediaContainer = document.getElementById("mediaContainer");
-//     // Récupérer tous les articles de média
-//     const mediaItems = mediaContainer.querySelectorAll(".media-item");
-
-//     // Convertir les éléments NodeList en tableau
-//     const mediaArray = Array.from(mediaItems);
-
-//     // Trier les médias par popularité
-//     const sortedMedia = sortByPopularity(mediaArray);
-
-//     // Réorganiser les médias dans le conteneur en fonction de l'ordre trié
-//     sortedMedia.forEach((media, index) => {
-//         // Mettre à jour le style pour positionner chaque média en fonction de son nouvel index
-//         media.style.order = index + 1;
-//     });
-// }
-
-
-    // CREATION DES FILTRES
-    // Appel de la fonction de réorganisation lors de la sélection de l'option de filtrage
-    document.addEventListener("DOMContentLoaded", function () {
-        const filterSelect = document.getElementById("filterSelect");
-
-        filterSelect.addEventListener("change", function () {
-            const selectedOption = filterSelect.value;
-            // Appel de la fonction de filtrage appropriée en fonction de l'option sélectionnée
-            if (selectedOption === "popularity") {
-                // Fonction de filtrage par popularité
-                // Par exemple : filterByPopularity();
-                rearrangeAndDisplayMediaByPopularity();
-            } else if (selectedOption === "date") {
-                // Fonction de filtrage par date
-                // Par exemple : filterByDate();
-            } else if (selectedOption === "title") {
-                // Fonction de filtrage par titre
-                // Par exemple : filterByTitle();
-            }
-        });
-    });
+       // Ecouteur d'événement pour le changement de sélection du filtre
+       const filterSelect = document.getElementById('filterSelect');
+       filterSelect.addEventListener('change', async () => {
+           // Récupérer la valeur sélectionnée du filtre
+           const selectedOption = filterSelect.value;
+   
+           // Récupérer les médias du photographe
+           const medias = await getPhotographerMedias();
+   
+           // Trier les médias selon l'option sélectionnée
+           if (selectedOption === 'title') {
+               medias.sort((a, b) => a.title.localeCompare(b.title));
+           } else if (selectedOption === 'popularity') {
+               medias.sort((a, b) => b.likes - a.likes);
+           }
+   
+           // Afficher les médias triés
+           displayMedias(medias, photographer.name.split(" ")[0].replace("-", "_"));
+       });
 
 }
 
