@@ -64,6 +64,9 @@ async function displayMedias(medias, firstname) {
     } else if (selectedOption === "title") {
         // Trier les médias par titre (ordre alphabétique)
         medias.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (selectedOption === "date") {
+        // Trier les médias par titre (ordre alphabétique)
+        medias.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
     }
 
     let totalLikes = 0; // Initialiser le total des likes
@@ -72,7 +75,7 @@ async function displayMedias(medias, firstname) {
         // Générer l'élément de média en utilisant la fonction de modèle du fichier media.js
         const mediaModel = mediaTemplate(mediaItem, firstname)
         const mediaElement = mediaModel.getMediaCardDOM();
-        
+
         // Ajouter l'élément de média au conteneur
         mediaContainer.appendChild(mediaElement);
 
@@ -82,60 +85,7 @@ async function displayMedias(medias, firstname) {
 
     // Afficher le total des likes dans la modal de likes
     const likesContent = document.getElementById("likesContent");
-    const totalLikesSpan = document.createElement("span");
-    totalLikesSpan.innerHTML = `${totalLikes} &#10084;`; // Cœur noir Unicode
-    likesContent.appendChild(totalLikesSpan);
-
-
-
-    // let totalLikes = 0; // Initialiser le total des likes
-    // let mediaRow; // Variable pour stocker le conteneur de ligne actuel
-
-    // medias.forEach((mediaItem, index) => {
-    //     // Créez un nouveau conteneur de ligne pour chaque troisième média
-    //     if (index % 3 === 0) {
-    //         mediaRow = document.createElement("div");
-    //         mediaRow.classList.add("media-row");
-    //         mediaContainer.appendChild(mediaRow);
-    //     }
-
-    //     // Générer l'élément de média en utilisant la fonction de modèle du fichier media.js
-    //     const mediaModel = mediaTemplate(mediaItem, firstname);
-    //     const mediaElement = mediaModel.getMediaCardDOM();
-
-    //     // Ajouter l'élément de média à la ligne actuelle
-    //     mediaRow.appendChild(mediaElement);
-
-    //     // Ajouter les likes de chaque média au total
-    //     totalLikes += mediaItem.likes;
-    // });
-
-    // // Afficher le total des likes dans la modal de likes
-    // const likesContent = document.getElementById("likesContent");
-    // const totalLikesSpan = document.createElement("span");
-    // totalLikesSpan.innerHTML = `${totalLikes} &#10084;`; // Cœur noir Unicode
-    // likesContent.appendChild(totalLikesSpan);
-
-
-// }
-
-    let mediaRow; // Variable pour stocker le conteneur de ligne actuel
-    medias.forEach((mediaItem, index) => {
-        // Créez un nouveau conteneur de ligne pour chaque troisième média
-        if (index % 3 === 0) {
-            mediaRow = document.createElement("div");
-            mediaRow.classList.add("media-row");
-            mediaContainer.appendChild(mediaRow);
-        }
-
-        const mediaElement = document.createElement("div");
-        mediaElement.classList.add("media-item");
-
-        // Ajoutez le contenu de média à l'élément média ici
-
-        mediaRow.appendChild(mediaElement);
-    });
-
+    likesContent.innerHTML = `${totalLikes} &#10084;`; // Cœur noir Unicode
 }
 
 
@@ -156,25 +106,25 @@ async function init() {
     displayMedias(medias, photographer.name.split(" ")[0].replace("-", "_"));
 
 
-       // Ecouteur d'événement pour le changement de sélection du filtre
-       const filterSelect = document.getElementById('filterSelect');
-       filterSelect.addEventListener('change', async () => {
-           // Récupérer la valeur sélectionnée du filtre
-           const selectedOption = filterSelect.value;
-   
-           // Récupérer les médias du photographe
-           const medias = await getPhotographerMedias();
-   
-           // Trier les médias selon l'option sélectionnée
-           if (selectedOption === 'title') {
-               medias.sort((a, b) => a.title.localeCompare(b.title));
-           } else if (selectedOption === 'popularity') {
-               medias.sort((a, b) => b.likes - a.likes);
-           }
-   
-           // Afficher les médias triés
-           displayMedias(medias, photographer.name.split(" ")[0].replace("-", "_"));
-       });
+    // Ecouteur d'événement pour le changement de sélection du filtre
+    const filterSelect = document.getElementById('filterSelect');
+    filterSelect.addEventListener('change', async () => {
+        // Récupérer la valeur sélectionnée du filtre
+        const selectedOption = filterSelect.value;
+
+        // Récupérer les médias du photographe
+        const medias = await getPhotographerMedias();
+
+        // Trier les médias selon l'option sélectionnée
+        if (selectedOption === 'title') {
+            medias.sort((a, b) => a.title.localeCompare(b.title));
+        } else if (selectedOption === 'popularity') {
+            medias.sort((a, b) => b.likes - a.likes);
+        }
+
+        // Afficher les médias triés
+        displayMedias(medias, photographer.name.split(" ")[0].replace("-", "_"));
+    });
 
 }
 
