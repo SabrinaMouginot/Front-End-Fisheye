@@ -42,14 +42,23 @@
 
     <!-- Modal compteur de likes-->
     <div id="photographerLikes" class="photographersLikes">
-        <div class="likesContent">
-          <!-- affichage compteur total des Likes -->
-          <span id="likesContent"></span>
-        </div>
+      <div class="likesContent">
+        <!-- affichage compteur total des Likes -->
+        <span id="likesContent"></span>
+      </div>
     </div>
 
-    
   </main>
+
+  <!-- Lightbox Modal -->
+  <dialog id="lightbox" class="lightbox">
+    <img src="assets/icons/close.svg" onclick="closeModal()" />
+    <div class="lightbox-content">
+        <!-- affichage Lightbox -->
+    </div>
+  </dialog>
+
+
   <dialog id="contact_modal" class="modal">
     <header>
       <h2>Contactez-moi</h2>
