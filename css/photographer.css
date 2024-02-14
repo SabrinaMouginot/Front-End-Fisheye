@@ -109,7 +109,8 @@
 /* LIGHTBOX MEDIAS */
 .lightbox {
     width: 80%;
-    height: 700px; 
+    height: 100%; 
+    /* height: 700px;  */
     margin-top: 40px;
 }
 
