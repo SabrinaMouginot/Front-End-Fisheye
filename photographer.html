@@ -54,7 +54,14 @@
   <dialog id="lightbox" class="lightbox">
   
     <div class="lightbox-content">
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
+      <div class="arrow-container">
+        <img src="assets/fleches/left.svg" alt="flèche de gauche">
+      </div>
+      <div id="media-content"></div>
+      <div class="arrow-container">
+        <img id="btn-close" src="assets/icons/close.svg" alt="bouton fermer">
+        <img src="assets/fleches/right.svg" alt="flèche de droite">
+      </div>
         <!-- affichage Lightbox -->
     </div>
   </dialog>

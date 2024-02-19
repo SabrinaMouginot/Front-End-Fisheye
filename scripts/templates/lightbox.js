@@ -2,9 +2,9 @@
 
 // LIGHTBOX
 // Fonction pour ouvrir la lightbox avec le média sélectionné
-function openLightbox(mediaData) {
+function openLightbox(mediaData, path) {
     const lightbox = document.getElementById('lightbox');
-    const lightboxContent = document.querySelector('.lightbox-content');
+    const lightboxContent = document.querySelector('#media-content');
     // const mediaContainer = document.createElement('div');
 
     // const closeButton = document.createElement('span'); // Ajout de la croix de fermeture
@@ -15,13 +15,10 @@ function openLightbox(mediaData) {
     //     lightbox.close();
     // });
 
-    // Effacez le contenu précédent de la lightbox
-    lightboxContent.innerHTML = '';
-
     // Créez l'élément de média approprié en fonction du type (image ou vidéo)
     if (mediaData.image) {
         const img = document.createElement('img');
-        img.src = `assets/photographers/Sample_Photos/${mediaData.firstname}/${mediaData.image}`;
+        img.src = `${path}/${mediaData.image}`;
         img.alt = mediaData.title;
         // mediaContainer.appendChild(img);
         lightboxContent.appendChild(img);
@@ -29,16 +26,14 @@ function openLightbox(mediaData) {
         const video = document.createElement('video');
         const source = document.createElement('source');
         video.controls = true;
-        source.src = `assets/photographers/Sample_Photos/${mediaData.firstname}/${mediaData.video}`;
+        source.src = `${path}/${mediaData.video}`;
         video.appendChild(source);
         // mediaContainer.appendChild(video);
         lightboxContent.appendChild(video);
     }
 
         // Ajouter la croix de fermeture à la lightbox
-        const closeButton = document.createElement('img');
-        closeButton.src = 'assets/icons/close.svg';
-        closeButton.classList.add('close-button');
+        const closeButton = document.getElementById("btn-close");
         closeButton.addEventListener('click', () => {
             lightbox.close();
         });

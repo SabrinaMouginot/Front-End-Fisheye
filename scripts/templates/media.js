@@ -62,8 +62,11 @@ function mediaTemplate(data, firstname) {
 
         // LIGHTBOX (GESTIONNAIRE D'EVENEMENT)
         // Ajoutez un gestionnaire d'événements de clic pour ouvrir la lightbox
-        article.addEventListener('click', () => {
-            openLightbox(data);
+        img.addEventListener('click', () => {
+            openLightbox(data, picture);
+        });
+        video.addEventListener('click', () => {
+            openLightbox(data, picture);
         });
 
         return article;
