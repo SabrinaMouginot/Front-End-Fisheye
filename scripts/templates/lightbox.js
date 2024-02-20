@@ -33,13 +33,13 @@ function openLightbox(mediaData, path) {
     }
 
         // Ajouter la croix de fermeture à la lightbox
-        const closeButton = document.getElementById("btn-close");
-        closeButton.addEventListener('click', () => {
-            lightbox.close();
-        });
+        // const closeButton = document.getElementById("btn-close");
+        // closeButton.addEventListener('click', () => {
+        //     lightbox.close();
+        // });
     // Ajoutez le média à la lightbox
     // lightboxContent.appendChild(mediaContainer);
-    lightboxContent.appendChild(closeButton);
+    // lightboxContent.appendChild(closeButton);
 
     // Affichez la lightbox
     lightbox.showModal();
