@@ -15,6 +15,9 @@ function openLightbox(mediaData, path) {
     //     lightbox.close();
     // });
 
+    // Vide la div #media-content avant d'ajouter un nouveau média
+    lightboxContent.innerHTML = '';
+
     // Créez l'élément de média approprié en fonction du type (image ou vidéo)
     if (mediaData.image) {
         const img = document.createElement('img');
@@ -32,11 +35,11 @@ function openLightbox(mediaData, path) {
         lightboxContent.appendChild(video);
     }
 
-        // Ajouter la croix de fermeture à la lightbox
-        const closeButton = document.getElementById("btn-close");
-        closeButton.addEventListener('click', () => {
-            lightbox.close();
-        });
+    // Ajouter la croix de fermeture à la lightbox
+    const closeButton = document.getElementById("btn-close");
+    closeButton.addEventListener('click', () => {
+        lightbox.close();
+    });
     // Ajoutez le média à la lightbox
     // lightboxContent.appendChild(closeButton);
 
