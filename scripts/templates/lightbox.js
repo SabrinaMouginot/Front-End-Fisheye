@@ -1,19 +1,8 @@
-
-
 // LIGHTBOX
 // Fonction pour ouvrir la lightbox avec le média sélectionné
 function openLightbox(mediaData, path) {
     const lightbox = document.getElementById('lightbox');
     const lightboxContent = document.querySelector('#media-content');
-    // const mediaContainer = document.createElement('div');
-
-    // const closeButton = document.createElement('span'); // Ajout de la croix de fermeture
-    // closeButton.classList.add('close-button'); // Ajout de la classe pour les styles CSS
-
-    // // Ajout d'un gestionnaire d'événements pour fermer la lightbox lors du clic sur la croix
-    // closeButton.addEventListener('click', () => {
-    //     lightbox.close();
-    // });
 
     // Vide la div #media-content avant d'ajouter un nouveau média
     lightboxContent.innerHTML = '';
@@ -23,7 +12,6 @@ function openLightbox(mediaData, path) {
         const img = document.createElement('img');
         img.src = `${path}/${mediaData.image}`;
         img.alt = mediaData.title;
-        // mediaContainer.appendChild(img);
         lightboxContent.appendChild(img);
     } else if (mediaData.video) {
         const video = document.createElement('video');
@@ -31,7 +19,6 @@ function openLightbox(mediaData, path) {
         video.controls = true;
         source.src = `${path}/${mediaData.video}`;
         video.appendChild(source);
-        // mediaContainer.appendChild(video);
         lightboxContent.appendChild(video);
     }
 
@@ -40,8 +27,19 @@ function openLightbox(mediaData, path) {
     closeButton.addEventListener('click', () => {
         lightbox.close();
     });
-    // Ajoutez le média à la lightbox
-    // lightboxContent.appendChild(closeButton);
+
+
+
+// Sélectionner la flèche droite
+const rightArrow = document.querySelector('.arrow-container img[src="assets/fleches/right.svg"]');
+
+// Ajouter un écouteur d'événements à la flèche droite
+rightArrow.addEventListener('click', () => {
+    // Vider le contenu de la lightbox
+    lightboxContent.innerHTML = '';
+});
+
+
 
     // Affichez la lightbox
     lightbox.showModal();
