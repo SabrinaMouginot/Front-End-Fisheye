@@ -35,8 +35,20 @@ const rightArrow = document.querySelector('.arrow-container img[src="assets/flec
 
 // Ajouter un écouteur d'événements à la flèche droite
 rightArrow.addEventListener('click', () => {
-    // Vider le contenu de la lightbox
-    lightboxContent.innerHTML = '';
+    // Récupérer l'article suivant dans la liste des médias
+    const nextArticle = article.nextElementSibling;
+
+    // Si un article suivant existe
+    if (nextArticle) {
+        // Récupérer le contenu de l'article suivant
+        const nextMedia = nextArticle.querySelector('img, video');
+
+        // Vider le contenu de la lightbox
+        lightboxContent.innerHTML = '';
+
+        // Insérer le contenu de l'article suivant dans la lightbox
+        lightboxContent.appendChild(nextMedia.cloneNode(true));
+    }
 });
 
 
