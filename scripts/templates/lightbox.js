@@ -1,34 +1,32 @@
-// LIGHTBOX
-// Fonction pour ouvrir la lightbox avec le média sélectionné
-function openLightbox(mediaData, path) {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxContent = document.querySelector('#media-content');
+// // LIGHTBOX
+// // Fonction pour ouvrir la lightbox avec le média sélectionné
+// function openLightbox(mediaData, path) {
+//     const lightbox = document.getElementById('lightbox');
+//     const lightboxContent = document.querySelector('#media-content');
 
-    // Vide la div #media-content avant d'ajouter un nouveau média
-    lightboxContent.innerHTML = '';
+//     // Vide la div #media-content avant d'ajouter un nouveau média
+//     lightboxContent.innerHTML = '';
 
-    // Créez l'élément de média approprié en fonction du type (image ou vidéo)
-    if (mediaData.image) {
-        const img = document.createElement('img');
-        img.src = `${path}/${mediaData.image}`;
-        img.alt = mediaData.title;
-        lightboxContent.appendChild(img);
-    } else if (mediaData.video) {
-        const video = document.createElement('video');
-        const source = document.createElement('source');
-        video.controls = true;
-        source.src = `${path}/${mediaData.video}`;
-        video.appendChild(source);
-        lightboxContent.appendChild(video);
-    }
+//     // Créez l'élément de média approprié en fonction du type (image ou vidéo)
+//     if (mediaData.image) {
+//         const img = document.createElement('img');
+//         img.src = `${path}/${mediaData.image}`;
+//         img.alt = mediaData.title;
+//         lightboxContent.appendChild(img);
+//     } else if (mediaData.video) {
+//         const video = document.createElement('video');
+//         const source = document.createElement('source');
+//         video.controls = true;
+//         source.src = `${path}/${mediaData.video}`;
+//         video.appendChild(source);
+//         lightboxContent.appendChild(video);
+//     }
 
-    // Ajouter la croix de fermeture à la lightbox
-    const closeButton = document.getElementById("btn-close");
-    closeButton.addEventListener('click', () => {
-        lightbox.close();
-    });
-
-
+//     // Ajouter la croix de fermeture à la lightbox
+//     const closeButton = document.getElementById("btn-close");
+//     closeButton.addEventListener('click', () => {
+//         lightbox.close();
+//     });
 
 // // // Sélectionner la flèche droite
 // // const rightArrow = document.querySelector('.arrow-container img[src="assets/fleches/right.svg"]');
@@ -51,35 +49,13 @@ function openLightbox(mediaData, path) {
 // //     }
 // // });
 
+//     // Affichez la lightbox
+//     lightbox.showModal();
+// }
 
 
-    // Affichez la lightbox
-    lightbox.showModal();
-}
+// AFFICHER UN MEDIA DANS LA LIGHTBOX
 
-
-// Sélectionner la flèche droite et ajouter un écouteur d'événements
-const rightArrow = document.querySelector('.arrow-right');
-if (rightArrow) {
-    rightArrow.addEventListener('click', navigateToNextMedia);
-}
-
-// Fonction pour naviguer vers le média suivant
-function navigateToNextMedia() {
-    const lightboxContent = document.querySelector('#media-content');
-    const currentMedia = lightboxContent.querySelector('img, video');
-    const currentArticle = currentMedia.parentElement;
-    const nextArticle = currentArticle.nextElementSibling;
-
-    // Si un article suivant existe
-    if (nextArticle) {
-        const nextMedia = nextArticle.querySelector('img, video');
-        lightboxContent.innerHTML = ''; // Vider le contenu de la lightbox
-        lightboxContent.appendChild(nextMedia.cloneNode(true)); // Insérer le nouveau média
-    }
-}
-
-// LIGHTBOX
 // Fonction pour ouvrir la lightbox avec le média sélectionné
 function openLightbox(mediaData, path) {
     const lightbox = document.getElementById('lightbox');
@@ -111,4 +87,54 @@ function openLightbox(mediaData, path) {
 
     // Affichez la lightbox
     lightbox.showModal();
+}
+
+
+
+
+//FLECHE DROITE
+
+// Sélectionner la flèche droite et ajouter un écouteur d'événements
+const rightArrow = document.querySelector('.arrow-right');
+if (rightArrow) {
+    rightArrow.addEventListener('click', navigateToNextMedia);
+}
+
+// Fonction pour naviguer vers le média suivant
+function navigateToNextMedia() {
+    const lightboxContent = document.querySelector('#media-content');
+    const currentMedia = lightboxContent.querySelector('img, video');
+    const currentArticle = currentMedia.parentElement;
+    const nextArticle = currentArticle.nextElementSibling;
+
+    // Si un article suivant existe
+    if (nextArticle) {
+        const nextMedia = nextArticle.querySelector('img, video');
+        lightboxContent.innerHTML = ''; // Vider le contenu de la lightbox
+        lightboxContent.appendChild(nextMedia.cloneNode(true)); // Insérer le nouveau média
+    }
+}
+
+
+// FLECHE GAUCHE
+
+// Sélectionner la flèche gauche et ajouter un écouteur d'événements
+const leftArrow = document.querySelector('.arrow-left');
+if (leftArrow) {
+    leftArrow.addEventListener('click', navigateToPreviousMedia);
+}
+
+// Fonction pour naviguer vers le média précédent
+function navigateToPreviousMedia() {
+    const lightboxContent = document.querySelector('#media-content');
+    const currentMedia = lightboxContent.querySelector('img, video');
+    const currentArticle = currentMedia.parentElement;
+    const previousArticle = currentArticle.previousElementSibling;
+
+    // Si un article précédent existe
+    if (previousArticle) {
+        const previousMedia = previousArticle.querySelector('img, video');
+        lightboxContent.innerHTML = ''; // Vider le contenu de la lightbox
+        lightboxContent.appendChild(previousMedia.cloneNode(true)); // Insérer le nouveau média
+    }
 }
