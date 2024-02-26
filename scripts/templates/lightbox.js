@@ -119,3 +119,15 @@ function navigateToPreviousMedia() {
         video.setAttribute("data-index", previousIndex);
     }
 }
+
+
+// NAVIGATION TOUCHES FLECHEES
+
+// Ajouter un écouteur d'événements pour détecter les pressions sur les touches du clavier
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'ArrowLeft') {
+        navigateToPreviousMedia(); // Appeler la fonction pour passer au média précédent lors de la pression de la touche flèche gauche
+    } else if (event.key === 'ArrowRight') {
+        navigateToNextMedia(); // Appeler la fonction pour passer au média suivant lors de la pression de la touche flèche droite
+    }
+});
