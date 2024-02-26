@@ -71,10 +71,10 @@ async function displayMedias(medias, firstname) {
 
     let totalLikes = 0; // Initialiser le total des likes
 
-    medias.forEach((mediaItem) => {
+    medias.forEach((mediaItem, index) => {
         // Générer l'élément de média en utilisant la fonction de modèle du fichier media.js
         const mediaModel = mediaTemplate(mediaItem, firstname)
-        const mediaElement = mediaModel.getMediaCardDOM();
+        const mediaElement = mediaModel.getMediaCardDOM(index, medias);
 
         // Ajouter l'élément de média au conteneur
         mediaContainer.appendChild(mediaElement);
@@ -96,8 +96,8 @@ async function displayModal() {
 
 async function init() {
 
-        // Initialiser la somme totale des likes dans la modale à zéro
-        document.getElementById("likesContent").innerHTML = '0 &#10084;';
+    // Initialiser la somme totale des likes dans la modale à zéro
+    document.getElementById("likesContent").innerHTML = '0 &#10084;';
 
 
     // Récupère les datas des photographes

@@ -1,9 +1,11 @@
 function mediaTemplate(data, firstname) {
-    const picture = `assets/photographers/Sample_Photos/${firstname}/`;
-    function getMediaCardDOM() {
+    const path = `assets/photographers/Sample_Photos/${firstname}/`;
+    function getMediaCardDOM(index, medias) {
         const article = document.createElement('article');
         const img = document.createElement('img');
         const video = document.createElement('video');
+        img.setAttribute("data-index", index);
+        video.setAttribute("data-index", index);
         const div = document.createElement('div');
         const mediaTitle = document.createElement('h3');
         const nbLikes = document.createElement('span');
@@ -14,12 +16,12 @@ function mediaTemplate(data, firstname) {
 
         if (data.image) {
             article.appendChild(img)
-            img.src = picture + data.image;
+            img.src = path + data.image;
             img.alt = data.title;
         } else if (data.video) {
             const source = document.createElement('source')
             video.appendChild(source)
-            source.src = picture + data.video;
+            source.src = path + data.video;
             article.appendChild(video)
         }
 
@@ -63,10 +65,10 @@ function mediaTemplate(data, firstname) {
         // LIGHTBOX (GESTIONNAIRE D'EVENEMENT)
         // Ajoutez un gestionnaire d'événements de clic pour ouvrir la lightbox
         img.addEventListener('click', () => {
-            openLightbox(data, picture);
+            openLightbox(data, path, medias, index);
         });
         video.addEventListener('click', () => {
-            openLightbox(data, picture);
+            openLightbox(data, path, medias, index);
         });
 
         return article;
