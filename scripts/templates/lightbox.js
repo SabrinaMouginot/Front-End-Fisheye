@@ -51,6 +51,12 @@ if (rightArrow) {
 function navigateToNextMedia() {
     const lightboxContent = document.querySelector('#media-content');
     const currentMedia = lightboxContent.firstChild;
+
+    // Vérifier si currentMedia est null
+    if (!currentMedia) {
+        return;
+    }
+
     const currentIndex = Number(currentMedia.getAttribute("data-index"));
     const nextIndex = (currentIndex + 1) % medias.length; // Utilisation de modulo pour boucler à la fin de la liste
     const nextMedia = medias[nextIndex];
@@ -64,9 +70,6 @@ function navigateToNextMedia() {
         img.src = path + nextMedia.image;
         img.alt = nextMedia.title;
         lightboxContent.appendChild(img);
-
-        currentMedia.src = path + nextMedia.image;
-        currentMedia.alt = nextMedia.title;
     } else if (nextMedia.video) {
         const video = document.createElement('video');
         const source = document.createElement('source');
@@ -75,12 +78,7 @@ function navigateToNextMedia() {
         video.appendChild(source);
         lightboxContent.appendChild(video);
         video.setAttribute("data-index", nextIndex);
-
-        currentMedia.firstChild.src = path + nextMedia.video;
     }
-
-    // Mettre à jour l'attribut data-index du média actuel avec l'index du média suivant
-    currentMedia.setAttribute("data-index", nextIndex);
 }
 
 
