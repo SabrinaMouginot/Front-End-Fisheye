@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-  
+
 <head>
   <link href="css/style.css" rel="stylesheet" type="text/css" />
   <meta charset="utf-8">
@@ -11,7 +11,7 @@
 
 <body>
   <header>
-    <img src="assets/images/logo.png" class="logo" />
+    <img src="assets/images/logo.png" class="logo" alt="fisheye logo"/>
   </header>
   <main id="main">
     <div class="photograph-header">
@@ -72,7 +72,8 @@
   <dialog id="contact_modal" class="modal">
     <header>
       <h2>Contactez-moi</h2>
-      <img src="assets/icons/close.svg" onclick="closeModal()" />
+      <!-- <img src="assets/icons/close.svg" onclick="closeModal()" alt="bouton fermant"/> -->
+      <img src="assets/icons/close.svg" alt="bouton fermant" role="button" tabindex="0" onclick="closeModal()" onkeypress="handleKeyPress(event)">
     </header>
     <form name="reserve" id="form">
       <div class="formData">
