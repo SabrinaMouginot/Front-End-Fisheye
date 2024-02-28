@@ -17,7 +17,7 @@ function mediaTemplate(data, firstname) {
         if (data.image) {
             article.appendChild(img)
             img.src = path + data.image;
-            img.alt = data.title;
+            img.alt = "Image dont le titre est " + data.title;
         } else if (data.video) {
             const source = document.createElement('source')
             video.appendChild(source)
