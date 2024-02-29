@@ -35,4 +35,6 @@ function navigateToNextMedia() {
         lightboxContent.appendChild(video);
         video.setAttribute("data-index", nextIndex);
     }
+
+    console.log('VFlèche droite pressée');
 }
