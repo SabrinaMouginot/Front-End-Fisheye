@@ -18,8 +18,6 @@ async function getPhotographerMedias() {
     return medias;
 }
 
-
-
 function displayPhotographerInfo(photographer) {
     const photographerName = document.querySelector("#photographer-name");
     const photographerLocation = document.querySelector("#photographer-location");
