@@ -36,5 +36,5 @@ function navigateToNextMedia() {
         video.setAttribute("data-index", nextIndex);
     }
 
-    console.log('VFlèche droite pressée');
+    console.log('btnFlèche droite pressée');
 }
