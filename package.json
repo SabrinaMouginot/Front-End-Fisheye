@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/SabrinaMouginot/Front-End-Fisheye/issues"
   },
-  "homepage": "https://github.com/SabrinaMouginot/Front-End-Fisheye#readme"
+  "homepage": "https://github.com/SabrinaMouginot/Front-End-Fisheye#readme",
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  }
 }
