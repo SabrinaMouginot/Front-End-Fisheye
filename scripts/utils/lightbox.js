@@ -21,6 +21,7 @@ function openLightbox(mediaData, pathFromPage, mediasFromPage, index) {
     } else if (mediaData.video) {
         const video = document.createElement('video');
         video.setAttribute("data-index", index);
+        // video.setAttribute("data-index", previousIndex);
         const source = document.createElement('source');
         video.controls = true;
         source.src = `${path}/${mediaData.video}`;
@@ -41,8 +42,8 @@ function openLightbox(mediaData, pathFromPage, mediasFromPage, index) {
 
     // Affichez la lightbox
     lightbox.showModal();
-
 }
+
 
 // NAVIGATION TOUCHES FLECHEES
 
