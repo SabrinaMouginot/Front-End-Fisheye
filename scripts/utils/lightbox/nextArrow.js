@@ -1,8 +1,8 @@
 // Sélectionner la flèche droite et ajouter un écouteur d'événements
-// const rightArrow = document.querySelector('.arrow-right');
-// if (rightArrow) {
-//     rightArrow.addEventListener('click', navigateToNextMedia);
-// }
+const rightArrow = document.querySelector('.arrow-right');
+if (rightArrow) {
+    rightArrow.addEventListener('click', navigateToNextMedia);
+}
 
 export function navigateToNextMedia(medias, path) {
     const lightboxContent = document.querySelector('#media-content');
@@ -20,13 +20,13 @@ export function navigateToNextMedia(medias, path) {
     // Vide la lightbox avant d'ajouter le nouveau média
     lightboxContent.innerHTML = '';
 
-    if (nextMedia.image) {
+    if (nextMedia && nextMedia.image) {
         const img = document.createElement('img');
         img.setAttribute("data-index", nextIndex);
         img.src = path + nextMedia.image;
         img.alt = nextMedia.title;
         lightboxContent.appendChild(img);
-    } else if (nextMedia.video) {
+    } else if (nextMedia && nextMedia.video) {
         const video = document.createElement('video');
         const source = document.createElement('source');
         video.controls = true;
@@ -34,5 +34,7 @@ export function navigateToNextMedia(medias, path) {
         video.appendChild(source);
         lightboxContent.appendChild(video);
         video.setAttribute("data-index", nextIndex);
+        video.setAttribute('title', nextMedia.title); // Ajout du titre à la balise vidéo
+        source.setAttribute('title', nextMedia.title); // Ajout du titre à la balise vidéo
     }
 }

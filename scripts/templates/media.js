@@ -8,6 +8,7 @@ export function mediaTemplate(data, firstname) {
         const video = document.createElement('video');
         img.setAttribute("data-index", index);
         video.setAttribute("data-index", index);
+        video.setAttribute('title', data.title); // Ajout du titre à la balise vidéo
         const div = document.createElement('div');
         const mediaTitle = document.createElement('h3');
         const nbLikes = document.createElement('span');
@@ -24,6 +25,7 @@ export function mediaTemplate(data, firstname) {
             const source = document.createElement('source')
             video.appendChild(source)
             source.src = path + data.video;
+            source.setAttribute('title', data.title); // Ajout du titre à la balise vidéo
             article.appendChild(video)
         }
 
