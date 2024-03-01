@@ -1,3 +1,6 @@
+import { photographerTemplate } from '../templates/photographer.js';
+//Comme photographerTemplate est définie dans un autre fichier, je dois l'importer dans index.js avant son utilisation.
+
 async function getPhotographers() {
     const photographers = await fetch('http://127.0.0.1:5500/data/photographers.json')
         .then((res) => res.json())

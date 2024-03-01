@@ -4,7 +4,7 @@ if (leftArrow) {
     leftArrow.addEventListener('click', navigateToPreviousMedia);
 }
 
-function navigateToPreviousMedia() {
+export function navigateToPreviousMedia() {
     const lightboxContent = document.querySelector('#media-content');
     const currentMedia = lightboxContent.firstChild;
     const currentIndex = Number(currentMedia.getAttribute("data-index"));

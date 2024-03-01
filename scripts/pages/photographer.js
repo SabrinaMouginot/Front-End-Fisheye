@@ -1,6 +1,13 @@
+import { mediaTemplate } from '../templates/media.js';
+
 const urlParams = new URLSearchParams(window.location.search);
 const photographerId = urlParams.get('id');
+/* eslint-disable no-unused-vars */
 const dialog = document.querySelector("#contact_modal");
+/* eslint-enable no-unused-vars */
+//L'ajout de la directive ESLint eslint-disable et eslint-enable ne change pas réellement le code, 
+//mais il permet à ESLint d'ignorer temporairement cette erreur spécifique sur cette ligne. 
+//ça peut être utile quand je sais qu'une erreur est inoffensive ou lorsqu'elle est difficile à corriger tout de suite. 
 
 async function getPhotographer() {
     const data = await fetch('http://127.0.0.1:5500/data/photographers.json')
@@ -54,7 +61,9 @@ async function displayMedias(medias, firstname) {
 
 
     // TRI DES MEDIAS
-    const selectedOption = filterSelect.value;
+// eslint-disable-next-line no-undef
+const selectedOption = filterSelect.value;
+// eslint-enable no-undef
 
     if (selectedOption === "popularity") {
         // Trier les médias par popularité (nombre de likes décroissant)

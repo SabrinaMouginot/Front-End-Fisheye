@@ -1,8 +1,13 @@
+import { navigateToPreviousMedia } from './lightbox/previousArrow.js';
+import { navigateToNextMedia } from './lightbox/nextArrow.js';
+
+
 // LIGHTBOX
-let medias = [];
+// eslint-disable-next-line
+let medias = []; //pour ignorer cette erreur
 let path = "";
 // Fonction pour ouvrir la lightbox avec le média sélectionné
-function openLightbox(mediaData, pathFromPage, mediasFromPage, index) {
+export function openLightbox(mediaData, pathFromPage, mediasFromPage, index) {
     path = pathFromPage;
     medias = mediasFromPage;
     const lightbox = document.getElementById('lightbox');

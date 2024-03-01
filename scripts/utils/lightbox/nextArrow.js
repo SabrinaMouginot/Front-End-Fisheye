@@ -4,7 +4,7 @@ if (rightArrow) {
     rightArrow.addEventListener('click', navigateToNextMedia);
 }
 
-function navigateToNextMedia() {
+export function navigateToNextMedia(medias, path) {
     const lightboxContent = document.querySelector('#media-content');
     const currentMedia = lightboxContent.firstChild;
 
@@ -35,6 +35,4 @@ function navigateToNextMedia() {
         lightboxContent.appendChild(video);
         video.setAttribute("data-index", nextIndex);
     }
-
-    console.log('btnFlèche droite pressée');
 }

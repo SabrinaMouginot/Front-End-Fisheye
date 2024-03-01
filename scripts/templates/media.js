@@ -1,4 +1,6 @@
-function mediaTemplate(data, firstname) {
+import { openLightbox } from '../utils/lightbox.js'; //pour importer la fonction openLightbox
+
+export function mediaTemplate(data, firstname) {
     const path = `assets/photographers/Sample_Photos/${firstname}/`;
     function getMediaCardDOM(index, medias) {
         const article = document.createElement('article');

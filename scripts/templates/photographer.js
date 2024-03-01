@@ -1,4 +1,4 @@
-function photographerTemplate(data) {
+export function photographerTemplate(data) { //export permet à d'autres fichiers d'importer et d'utiliser cette fonction. 
     const { name, portrait, city, country, tagline, price } = data;
 
     const picture = `assets/photographers/Sample_Photos/Photographers ID Photos/${portrait}`;
