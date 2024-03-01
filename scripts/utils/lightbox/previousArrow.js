@@ -1,10 +1,10 @@
 // Sélectionner la flèche gauche et ajouter un écouteur d'événements
-const leftArrow = document.querySelector('.arrow-left');
-if (leftArrow) {
-    leftArrow.addEventListener('click', navigateToPreviousMedia);
-}
+// const leftArrow = document.querySelector('.arrow-left');
+// if (leftArrow) {
+//     leftArrow.addEventListener('click', navigateToPreviousMedia);
+// }
 
-export function navigateToPreviousMedia() {
+export function navigateToPreviousMedia(medias, path) {
     const lightboxContent = document.querySelector('#media-content');
     const currentMedia = lightboxContent.firstChild;
     const currentIndex = Number(currentMedia.getAttribute("data-index"));

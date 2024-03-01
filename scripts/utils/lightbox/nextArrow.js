@@ -1,8 +1,8 @@
 // Sélectionner la flèche droite et ajouter un écouteur d'événements
-const rightArrow = document.querySelector('.arrow-right');
-if (rightArrow) {
-    rightArrow.addEventListener('click', navigateToNextMedia);
-}
+// const rightArrow = document.querySelector('.arrow-right');
+// if (rightArrow) {
+//     rightArrow.addEventListener('click', navigateToNextMedia);
+// }
 
 export function navigateToNextMedia(medias, path) {
     const lightboxContent = document.querySelector('#media-content');
