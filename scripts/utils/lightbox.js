@@ -27,8 +27,8 @@ export function openLightbox(mediaData, pathFromPage, mediasFromPage, index) {
         const video = document.createElement('video');
         video.setAttribute("data-index", index);
         // video.setAttribute("data-index", previousIndex);
-        video.setAttribute('title', mediaData.title); // Ajout du titre à la balise vidéo
-        source.setAttribute('title', mediaData.title); // Ajout du titre à la balise vidéo
+        // video.setAttribute('title', mediaData.title); // Ajout du titre à la balise vidéo
+        // source.setAttribute('title', mediaData.title); // Ajout du titre à la balise vidéo
         const source = document.createElement('source');
         video.controls = true;
         source.src = `${path}/${mediaData.video}`;

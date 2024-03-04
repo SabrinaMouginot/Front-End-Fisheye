@@ -1,14 +1,18 @@
 import { openLightbox } from '../utils/lightbox.js'; //pour importer la fonction openLightbox
+let medias = []; // Définir et initialiser medias
 
 export function mediaTemplate(data, firstname) {
     const path = `assets/photographers/Sample_Photos/${firstname}/`;
+    console.log('Path:', path);
+    console.log('Medias:', medias);
+
     function getMediaCardDOM(index, medias) {
         const article = document.createElement('article');
         const img = document.createElement('img');
         const video = document.createElement('video');
         img.setAttribute("data-index", index);
         video.setAttribute("data-index", index);
-        video.setAttribute('title', data.title); // Ajout du titre à la balise vidéo
+        // video.setAttribute('title', data.title); // Ajout du titre à la balise vidéo
         const div = document.createElement('div');
         const mediaTitle = document.createElement('h3');
         const nbLikes = document.createElement('span');
@@ -25,7 +29,7 @@ export function mediaTemplate(data, firstname) {
             const source = document.createElement('source')
             video.appendChild(source)
             source.src = path + data.video;
-            source.setAttribute('title', data.title); // Ajout du titre à la balise vidéo
+            // source.setAttribute('title', data.title); // Ajout du titre à la balise vidéo
             article.appendChild(video)
         }
 
@@ -51,7 +55,7 @@ export function mediaTemplate(data, firstname) {
         }
 
         let isLiked = false; // Variable pour garder une trace de l'état du cœur
-        
+
         btnLike.addEventListener('click', () => {
             if (!isLiked) {
                 data.likes++;
@@ -78,5 +82,10 @@ export function mediaTemplate(data, firstname) {
         return article;
     }
 
+    // Ajouter le média actuel à la liste des médias
+    medias.push(data);
+
     return { getMediaCardDOM };
 }
+
+export { medias }; // Exporter la variable medias

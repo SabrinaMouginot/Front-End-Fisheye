@@ -1,40 +1,65 @@
 // Sélectionner la flèche droite et ajouter un écouteur d'événements
+// const rightArrow = document.querySelector('.arrow-right');
+// if (rightArrow) {
+//     rightArrow.addEventListener('click', navigateToNextMedia);
+// }
+
+/* eslint-disable no-unused-vars */
+// import { path, medias } from '../../templates/media.js';
+/* eslint-enable no-unused-vars */
+
+
+// Sélectionner la flèche droite et ajouter un écouteur d'événements
 const rightArrow = document.querySelector('.arrow-right');
 if (rightArrow) {
-    rightArrow.addEventListener('click', navigateToNextMedia);
+    rightArrow.addEventListener('click', () => {
+        console.log('Right arrow clicked');
+        navigateToNextMedia();
+    });
 }
 
+
 export function navigateToNextMedia(medias, path) {
+    console.log('Medias received:', medias);
+    console.log('Path received:', path);
     const lightboxContent = document.querySelector('#media-content');
     const currentMedia = lightboxContent.firstChild;
 
-    // Vérifier si currentMedia est null
-    if (!currentMedia) {
+    // // Vérifier si currentMedia est null
+    // if (!currentMedia) {
+    //     return;
+    // }
+
+    if (!currentMedia || !currentMedia.getAttribute) {
         return;
     }
 
     const currentIndex = Number(currentMedia.getAttribute("data-index"));
-    const nextIndex = (currentIndex + 1) % medias.length; // Utilisation de modulo pour boucler à la fin de la liste
+    console.log('Current index:', currentIndex);
+    const nextIndex = (currentIndex + 1) % medias.length;
+    console.log('Next index:', nextIndex);
     const nextMedia = medias[nextIndex];
 
-    // Vide la lightbox avant d'ajouter le nouveau média
     lightboxContent.innerHTML = '';
 
-    if (nextMedia && nextMedia.image) {
-        const img = document.createElement('img');
-        img.setAttribute("data-index", nextIndex);
-        img.src = path + nextMedia.image;
-        img.alt = nextMedia.title;
-        lightboxContent.appendChild(img);
-    } else if (nextMedia && nextMedia.video) {
-        const video = document.createElement('video');
-        const source = document.createElement('source');
-        video.controls = true;
-        source.src = path + nextMedia.video;
-        video.appendChild(source);
-        lightboxContent.appendChild(video);
-        video.setAttribute("data-index", nextIndex);
-        video.setAttribute('title', nextMedia.title); // Ajout du titre à la balise vidéo
-        source.setAttribute('title', nextMedia.title); // Ajout du titre à la balise vidéo
+
+    if (nextMedia) {
+        if (nextMedia.image) {
+            const img = document.createElement('img');
+            img.setAttribute("data-index", nextIndex);
+            img.src = path + nextMedia.image;
+            img.alt = nextMedia.title;
+            lightboxContent.appendChild(img);
+            console.log('Next media (image) added to lightbox:', img);
+        } else if (nextMedia.video) {
+            const video = document.createElement('video');
+            const source = document.createElement('source');
+            video.controls = true;
+            source.src = path + nextMedia.video;
+            video.appendChild(source);
+            lightboxContent.appendChild(video);
+            console.log('Next media (video) added to lightbox:', video);
+            // video.setAttribute("data-index", nextIndex);
+        }
     }
 }

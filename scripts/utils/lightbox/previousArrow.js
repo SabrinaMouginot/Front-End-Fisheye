@@ -7,6 +7,12 @@ if (leftArrow) {
 export function navigateToPreviousMedia(medias, path) {
     const lightboxContent = document.querySelector('#media-content');
     const currentMedia = lightboxContent.firstChild;
+
+    // Vérifier si currentMedia est null ou s'il n'a pas d'attribut "data-index"
+    if (!currentMedia || !currentMedia.getAttribute) {
+        return;
+    }
+
     const currentIndex = Number(currentMedia.getAttribute("data-index"));
 
     // Calcul de l'index précédent en prenant en compte le bouclage
@@ -17,13 +23,15 @@ export function navigateToPreviousMedia(medias, path) {
     // Vide la lightbox avant d'ajouter le nouveau média
     lightboxContent.innerHTML = '';
 
-    if (previousMedia && previousMedia.image) {
+    // if (previousMedia && previousMedia.image) {
+    if (previousMedia.image) {
         const img = document.createElement('img');
         img.setAttribute("data-index", previousIndex);
         img.src = path + previousMedia.image;
         img.alt = previousMedia.title;
         lightboxContent.appendChild(img);
-    } else if (previousMedia && previousMedia.video) {
+    // } else if (previousMedia && previousMedia.video) {
+    } else if (previousMedia.video) {
         const video = document.createElement('video');
         const source = document.createElement('source');
         video.controls = true;
@@ -31,7 +39,8 @@ export function navigateToPreviousMedia(medias, path) {
         video.appendChild(source);
         lightboxContent.appendChild(video);
         video.setAttribute("data-index", previousIndex);
-        video.setAttribute('title', previousMedia.title); // Ajout du titre à la balise vidéo
-        source.setAttribute('title', previousMedia.title); // Ajout du titre à la balise vidéo
+        // video.setAttribute('title', previousMedia.title); // Ajout du titre à la balise vidéo
+        // source.setAttribute('title', previousMedia.title); // Ajout du titre à la balise vidéo
     }
 }
+
