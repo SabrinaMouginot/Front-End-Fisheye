@@ -96,7 +96,6 @@
 
 .like-icon {
     cursor: pointer; /* Change le curseur en une petite main avec le doigt tendu */
-    font-style: normal;
 }
 
 .media-content {
@@ -104,6 +103,7 @@
     align-items: center;
     color: #901C1C;
 }
+
 
 /* LIGHTBOX MEDIAS */
 
