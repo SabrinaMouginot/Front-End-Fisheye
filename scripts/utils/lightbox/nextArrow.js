@@ -1,8 +1,7 @@
-// Sélectionner la flèche droite et ajouter un écouteur d'événements
-// const rightArrow = document.querySelector('.arrow-right');
-// if (rightArrow) {
-//     rightArrow.addEventListener('click', navigateToNextMedia);
-// }
+// Importez les variables path et medias de lightbox.js
+import { path, medias } from '../lightbox.js';
+// Dans la fonction navigateToNextMedia, supprimez les paramètres medias et path
+// Modifiez les références de medias et path pour utiliser les variables importées
 
 /* eslint-disable no-unused-vars */
 // import { path, medias } from '../../templates/media.js';
@@ -18,8 +17,14 @@ if (rightArrow) {
     });
 }
 
+// Sélectionner la flèche droite et ajouter un écouteur d'événements
+// const rightArrow = document.querySelector('.arrow-right');
+// if (rightArrow) {
+//     rightArrow.addEventListener('click', navigateToNextMedia);
+// }
 
-export function navigateToNextMedia(medias, path) {
+
+export function navigateToNextMedia() {
     console.log('Medias received:', medias);
     console.log('Path received:', path);
     const lightboxContent = document.querySelector('#media-content');

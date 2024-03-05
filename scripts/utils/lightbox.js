@@ -4,8 +4,8 @@ import { navigateToNextMedia } from './lightbox/nextArrow.js';
 
 // LIGHTBOX
 // eslint-disable-next-line
-let medias = []; //pour ignorer cette erreur
-let path = "";
+export let medias = []; //pour ignorer cette erreur
+export let path = "";
 // Fonction pour ouvrir la lightbox avec le média sélectionné
 export function openLightbox(mediaData, pathFromPage, mediasFromPage, index) {
     path = pathFromPage;

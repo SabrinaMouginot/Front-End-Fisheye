@@ -1,10 +1,16 @@
+// Importez les variables path et medias de lightbox.js
+import { path, medias } from '../lightbox.js';
+// Dans la fonction navigateToPreviousMedia, supprimez les paramètres medias et path
+// Modifiez les références de medias et path pour utiliser les variables importées
+
+
 // Sélectionner la flèche gauche et ajouter un écouteur d'événements
 const leftArrow = document.querySelector('.arrow-left');
 if (leftArrow) {
     leftArrow.addEventListener('click', navigateToPreviousMedia);
 }
 
-export function navigateToPreviousMedia(medias, path) {
+export function navigateToPreviousMedia() {
     const lightboxContent = document.querySelector('#media-content');
     const currentMedia = lightboxContent.firstChild;
 
