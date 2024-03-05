@@ -96,6 +96,7 @@
 
 .like-icon {
     cursor: pointer; /* Change le curseur en une petite main avec le doigt tendu */
+    font-style: normal;
 }
 
 .media-content {
@@ -104,15 +105,15 @@
     color: #901C1C;
 }
 
-
 /* LIGHTBOX MEDIAS */
 
 .lightbox {
     position: fixed; /* Position fixe pour rester à la même position sur l'écran */
     top: 0; /* Alignement en haut de l'écran */
     left: 0; /* Alignement à gauche de l'écran */
-    width: 95%; /* Largeur de la lightbox égale à 100% de la largeur de l'écran */
-    height: 90%; /* Hauteur de la lightbox égale à 100% de la hauteur de l'écran */
+    width: 100%; /* Largeur de la lightbox égale à 100% de la largeur de l'écran */
+    height: 100%; /* Hauteur de la lightbox égale à 100% de la hauteur de l'écran */
+    border: none;
 }
 
 .lightbox-content {
