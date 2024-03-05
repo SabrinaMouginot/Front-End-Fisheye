@@ -8,15 +8,21 @@ export function mediaTemplate(data, firstname) {
 
     function getMediaCardDOM(index, medias) {
         const article = document.createElement('article');
+        article.tabIndex = 1;
         const img = document.createElement('img');
         const video = document.createElement('video');
         img.setAttribute("data-index", index);
+        img.tabIndex = 1;
         video.setAttribute("data-index", index);
+        video.tabIndex = 1;
         // video.setAttribute('title', data.title); // Ajout du titre à la balise vidéo
         const div = document.createElement('div');
         const mediaTitle = document.createElement('h3');
+        mediaTitle.tabIndex = 1;
         const nbLikes = document.createElement('span');
+        nbLikes.tabIndex = 1;
         const btnLike = document.createElement('i');
+        btnLike.tabIndex = 1;
 
         article.classList.add("media-item");
         div.classList.add("media-content");
