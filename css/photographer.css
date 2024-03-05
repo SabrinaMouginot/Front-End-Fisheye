@@ -104,9 +104,7 @@
     color: #901C1C;
 }
 
-
 /* LIGHTBOX MEDIAS */
-
 .lightbox {
     position: fixed; /* Position fixe pour rester à la même position sur l'écran */
     top: 0; /* Alignement en haut de l'écran */
@@ -118,16 +116,10 @@
 
 .lightbox-content {
     display: flex;
-    /* justify-content: space-around; */
-    justify-content: center;
+    justify-content: space-around;
     align-items: center; 
-}
-
-.arrow-container {
-    display: flex;
-    /* flex-direction: column; */
-    justify-content: space-between; 
-    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 #btn-close-container {
@@ -138,29 +130,20 @@
 }
 
 #media-content {
-    max-width: 100%; /* Utiliser la largeur maximale possible sans déformation */
-    max-height: 100%; /* Utiliser la hauteur maximale possible sans déformation */
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centrer verticalement l'image */
-    align-items: center; /* Centrer horizontalement l'image */
-    overflow: hidden; /* Cacher le débordement de contenu */
-} 
-
-#media-content {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center; 
-    height: calc(100vh - 100px); /* Utiliser la hauteur de la fenêtre - 100px pour laisser de la place pour les flèches et les boutons */
+    align-items: center;
 }
 
 #media-content img,
 #media-content video {
-    max-width: 100%; /* Utiliser la largeur maximale possible sans déformation */
-    max-height: 100%; /* Utiliser la hauteur maximale possible sans déformation */
-    object-fit: contain; /* Conserver les proportions de l'image sans déformation */
+    max-width: 100%;
+    max-height: 1050px;
 }
+
 
 
 

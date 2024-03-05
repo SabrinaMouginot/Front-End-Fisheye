@@ -44,7 +44,7 @@ export function navigateToPreviousMedia() {
         source.src = path + previousMedia.video;
         video.appendChild(source);
         lightboxContent.appendChild(video);
-        video.setAttribute("data-index", previousIndex);
+        // video.setAttribute("data-index", previousIndex);
         // video.setAttribute('title', previousMedia.title); // Ajout du titre à la balise vidéo
         // source.setAttribute('title', previousMedia.title); // Ajout du titre à la balise vidéo
     }
