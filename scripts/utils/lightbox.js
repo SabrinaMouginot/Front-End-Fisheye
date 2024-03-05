@@ -49,18 +49,18 @@ export function openLightbox(mediaData, pathFromPage, mediasFromPage, index) {
 
     // Affichez la lightbox
     lightbox.showModal();
+
+    // NAVIGATION TOUCHES FLECHEES
+
+    // Ajouter un écouteur d'événements pour détecter les pressions sur les touches du clavier
+    window.addEventListener('keydown', function (event) {
+        console.log(event.key);
+        if (event.key === 'ArrowLeft') {
+            console.log('Flèche gauche pressée');
+            navigateToPreviousMedia(); // Appeler la fonction pour passer au média précédent lors de la pression de la touche flèche gauche
+        } else if (event.key === 'ArrowRight') {
+            console.log('Flèche droite pressée');
+            navigateToNextMedia(); // Appeler la fonction pour passer au média suivant lors de la pression de la touche flèche droite
+        }
+    },true);
 }
-
-
-// NAVIGATION TOUCHES FLECHEES
-
-// Ajouter un écouteur d'événements pour détecter les pressions sur les touches du clavier
-document.addEventListener('keydown', function (event) {
-    if (event.key === 'ArrowLeft') {
-        console.log('Flèche gauche pressée');
-        navigateToPreviousMedia(); // Appeler la fonction pour passer au média précédent lors de la pression de la touche flèche gauche
-    } else if (event.key === 'ArrowRight') {
-        console.log('Flèche droite pressée');
-        navigateToNextMedia(); // Appeler la fonction pour passer au média suivant lors de la pression de la touche flèche droite
-    }
-});
