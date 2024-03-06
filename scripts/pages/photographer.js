@@ -10,7 +10,8 @@ const dialog = document.querySelector("#contact_modal");
 //ça peut être utile quand je sais qu'une erreur est inoffensive ou lorsqu'elle est difficile à corriger tout de suite. 
 
 async function getPhotographer() {
-    const data = await fetch('http://127.0.0.1:5500/data/photographers.json')
+    // const data = await fetch('http://127.0.0.1:5500/data/photographers.json')
+    const data = await fetch('https://sabrinamouginot.github.io/Front-End-Fisheye /data/photographers.json')
         .then((res) => res.json())
 
     const photographer = data.photographers.find((photo) => photo.id == photographerId)
@@ -18,7 +19,8 @@ async function getPhotographer() {
 }
 
 async function getPhotographerMedias() {
-    const data = await fetch('http://127.0.0.1:5500/data/photographers.json')
+    // const data = await fetch('http://127.0.0.1:5500/data/photographers.json')
+    const data = await fetch('https://sabrinamouginot.github.io/Front-End-Fisheye /data/photographers.json')
         .then((res) => res.json())
 
     const medias = data.media.filter((media) => media.photographerId == photographerId)
