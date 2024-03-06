@@ -3,7 +3,7 @@ import { photographerTemplate } from '../templates/photographer.js';
 
 async function getPhotographers() {
     // const photographers = await fetch('http://127.0.0.1:5500/data/photographers.json')
-    const photographers = await fetch('https://sabrinamouginot.github.io/Front-End-Fisheye /data/photographers.json')
+    const photographers = await fetch('https://sabrinamouginot.github.io/Front-End-Fisheye/data/photographers.json')
         .then((res) => res.json())
     return photographers;
 }
