@@ -203,26 +203,28 @@
 }
 
 .modal {
-    position: fixed; /* Position fixe pour maintenir la modale à la même position lors du défilement */
-    top: 0; /* Positionner la modale au sommet de l'écran */
-    left: 0; /* Positionner la modale à gauche de l'écran */
-    width: 100%; /* Largeur de la modale à 100% de la largeur de l'écran */
-    height: 100vh; /* Hauteur de la modale à 100% de la hauteur de la fenêtre visible */
+    position: fixed;
+    /* Position fixe pour maintenir la modale à la même position lors du défilement */
+    top: 0;
+    /* Positionner la modale au sommet de l'écran */
+    left: 0;
+    /* Positionner la modale à gauche de l'écran */
+    width: 100%;
+    /* Largeur de la modale à 100% de la largeur de l'écran */
+    height: 100vh;
+    /* Hauteur de la modale à 100% de la hauteur de la fenêtre visible */
     border: none;
-    z-index: 999; /* Assurez-vous que la modale est affichée au-dessus du contenu de la page */
+    /* z-index: 999; */
+    /* Assurez-vous que la modale est affichée au-dessus du contenu de la page */
     display: flex;
     justify-content: center;
     align-items: center;
-    /* padding: 35px; */
 }
 
 .formulaire {
-
     border-radius: 5px;
     background-color: #DB8876;
-    /* width: 50%; */
     padding: 35px;
-
 }
 
 .modal header {
