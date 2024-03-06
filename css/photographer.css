@@ -96,6 +96,7 @@
 
 .like-icon {
     cursor: pointer; /* Change le curseur en une petite main avec le doigt tendu */
+    font-style: normal;
 }
 
 .media-content {
