@@ -220,6 +220,11 @@
     align-items: center; */
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .formulaire {
     width: 33%;
