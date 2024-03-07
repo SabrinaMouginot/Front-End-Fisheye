@@ -202,23 +202,25 @@
     margin-top: 30px;
 }
 
-.modal {
+
+
+.formulaire {
     border-radius: 5px;
     background-color: #DB8876;
     padding: 35px;
     border: none;
 }
 
-.modal header {
+.formulaire header {
     justify-content: space-between;
     width: 100%;
 }
 
-.modal header img {
+.formulaire header img {
     cursor: pointer;
 }
 
-.modal header h2 {
+.formulaire header h2 {
     font-size: 50px;
     font-weight: normal;
     text-align: center;
