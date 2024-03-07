@@ -236,3 +236,15 @@ form input {
     border: none;
     border-radius: 5px;
 }
+
+
+.errorMessage {
+    color: red;
+    margin-left: auto;
+    font-weight: bold;
+    font-size: 20px;
+    -webkit-text-stroke-width: 0.1px;
+    /* Épaisseur du contour */
+    -webkit-text-stroke-color: rgb(153, 0, 0);
+    /* Couleur du contour */
+}
