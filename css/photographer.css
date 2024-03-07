@@ -186,8 +186,6 @@
 
 
 
-
-
 /* MODAL DE CONTACT */
 
 .contact_button {
@@ -202,13 +200,37 @@
     margin-top: 30px;
 }
 
+#contact_modal {
+    width: 100%;
+    /* Couvrir toute la largeur de l'écran */
+    height: 100%;
+    /* Couvrir toute la hauteur de l'écran */
+    background-color: white;
+    /* z-index: 9999; */
+}
+
+.modal {
+    border: none;
+    position: fixed;
+    /* Position fixe pour le maintenir en place lors du défilement */
+    top: 0;
+    left: 0;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
 
 
 .formulaire {
+    width: 33%;
     border-radius: 5px;
     background-color: #DB8876;
     padding: 35px;
-    border: none;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    flex-direction: column;
+
 }
 
 .formulaire header {
