@@ -159,7 +159,6 @@
 
 
 
-
 /* MODAL COMPTEUR DE LIKES */
 .photographersLikes {
     position: fixed;
@@ -202,7 +201,8 @@
     margin-top: 30px;
 }
 
-.modal {
+#contact_modal {
+    display: none;
     position: fixed;
     /* Position fixe pour maintenir la modale à la même position lors du défilement */
     top: 0;
@@ -214,8 +214,11 @@
     height: 100vh;
     /* Hauteur de la modale à 100% de la hauteur de la fenêtre visible */
     border: none;
-    /* z-index: 999; */
+    z-index: 999;
     /* Assurez-vous que la modale est affichée au-dessus du contenu de la page */
+}
+
+.modal {
     display: flex;
     justify-content: center;
     align-items: center;
