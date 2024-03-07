@@ -59,7 +59,8 @@
 
 .media-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Chaque colonne fait au moins 300px */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* Chaque colonne fait au moins 300px */
     gap: 30px;
 }
 
@@ -70,32 +71,37 @@
 
 @media screen and (max-width: 1289px) {
     .media-container {
-        margin: 10%; 
+        margin: 10%;
     }
 }
 
 @media screen and (min-width: 1290px) {
     .media-container {
-        grid-template-columns: repeat(3, minmax(300px, 1fr)); /* Trois colonnes sur des écrans de 1290px et plus */
+        grid-template-columns: repeat(3, minmax(300px, 1fr));
+        /* Trois colonnes sur des écrans de 1290px et plus */
         margin: 100px;
     }
 }
 
-.media-item img, .media-item video {
+.media-item img,
+.media-item video {
     height: 300px;
     object-fit: cover;
 }
 
 .media-content h3 {
-    margin-right: auto; /* Faites en sorte que le titre soit à gauche en prenant le maximum d'espace disponible */
+    margin-right: auto;
+    /* Faites en sorte que le titre soit à gauche en prenant le maximum d'espace disponible */
 }
 
-.media-content span + i {
-    margin-left: 5px; /* Ajoutez une marge à gauche de l'icône de cœur */
+.media-content span+i {
+    margin-left: 5px;
+    /* Ajoutez une marge à gauche de l'icône de cœur */
 }
 
 .like-icon {
-    cursor: pointer; /* Change le curseur en une petite main avec le doigt tendu */
+    cursor: pointer;
+    /* Change le curseur en une petite main avec le doigt tendu */
     font-style: normal;
 }
 
@@ -107,24 +113,30 @@
 
 /* LIGHTBOX MEDIAS */
 .lightbox {
-    position: fixed; /* Position fixe pour rester à la même position sur l'écran */
-    top: 0; /* Alignement en haut de l'écran */
-    left: 0; /* Alignement à gauche de l'écran */
-    width: 100%; /* Largeur de la lightbox égale à 100% de la largeur de l'écran */
-    height: 100%; /* Hauteur de la lightbox égale à 100% de la hauteur de l'écran */
+    position: fixed;
+    /* Position fixe pour rester à la même position sur l'écran */
+    top: 0;
+    /* Alignement en haut de l'écran */
+    left: 0;
+    /* Alignement à gauche de l'écran */
+    width: 100%;
+    /* Largeur de la lightbox égale à 100% de la largeur de l'écran */
+    height: 100%;
+    /* Hauteur de la lightbox égale à 100% de la hauteur de l'écran */
     border: none;
 }
 
 .lightbox-content {
     display: flex;
     justify-content: space-around;
-    align-items: center; 
+    align-items: center;
     width: 100%;
     height: 100%;
 }
 
 #btn-close-container {
-    margin-left: auto; /* Pousse le bouton de fermeture vers la droite */
+    margin-left: auto;
+    /* Pousse le bouton de fermeture vers la droite */
     position: absolute;
     top: 0;
     right: 0;
@@ -150,29 +162,29 @@
 
 /* MODAL COMPTEUR DE LIKES */
 .photographersLikes {
-    position: fixed; 
-    bottom: 0px; 
-    right: 25px; 
+    position: fixed;
+    bottom: 0px;
+    right: 25px;
     width: 376px;
     height: 89px;
     background-color: rgb(219, 136, 118);
     border-radius: 5px;
-    z-index: 99; 
+    z-index: 99;
     display: flex;
-    justify-content:space-around;
+    justify-content: space-around;
     align-items: center;
     font-size: 24px;
-  }
-  
-  /* Modal Content */
-  .likesContent {
+}
+
+/* Modal Content */
+.likesContent {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
     color: black;
-  }
+}
 
-  
+
 
 
 

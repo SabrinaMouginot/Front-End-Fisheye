@@ -15,23 +15,23 @@ const validForm = (event) => {
     const setError = (element, message) => { //Déclare une fonction fléchée "setError" qui prend un élément du formulaire et un message d'erreur, puis affiche le message d'erreur et applique des classes CSS pour indiquer une erreur.
         const formData = element.parentElement;
         const errorDisplay = formData.querySelector('.errorMessage');
-    
+
         errorDisplay.innerHTML = message;
         formData.classList.add("error");
         formData.classList.remove("success");
         errors++;
     }
-    
+
     const setSuccess = (element) => { //Déclare une fonction fléchée "setSuccess" qui prend un élément du formulaire, puis efface tout message d'erreur et applique des classes CSS pour indiquer un succès.
         const formData = element.parentElement;
         const errorDisplay = formData.querySelector('.errorMessage');
-    
+
         errorDisplay.innerHTML = "";
         formData.classList.add("success");
         formData.classList.remove("error");
         errors--;
     }
-    
+
     const firstName = document.getElementById('first'); //Récupère l'élément du DOM avec l'ID "prenom" et l'assigne à la variable constante "firstName".
     const lastName = document.getElementById('last'); //Récupère l'élément du DOM avec l'ID "nom" et l'assigne à la variable constante "lastName".
     const mail = document.getElementById('email'); //Récupère l'élément du DOM avec l'ID "email" et l'assigne à la variable constante "mail".
@@ -61,8 +61,8 @@ const validForm = (event) => {
     } else {
         setSuccess(messageForm);
     }
-    
-    if(errors <=0) {
+
+    if (errors <= 0) {
         console.log(firstName.value, lastName.value, mail.value, messageForm.value)
         closeModal()
     }
