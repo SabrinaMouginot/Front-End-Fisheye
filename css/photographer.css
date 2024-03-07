@@ -35,6 +35,25 @@
     margin: 20px 0;
 }
 
+.contact_button {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    background-color: #901C1C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact {
+    padding: 11px;
+    height: 70px;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+
 /* LES FILTRES */
 
 #filterContainer {
@@ -188,16 +207,11 @@
 
 /* MODAL DE CONTACT */
 
-.contact_button {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    padding: 11px;
-    height: 70px;
-    border: none;
-    background-color: #901C1C;
-    border-radius: 5px;
-    margin-top: 30px;
+.submit {
+    border-radius: 5%;
+    margin-top: 3%;
+    padding: 3% 8%;
+    height: 7%;
 }
 
 #contact_modal {
@@ -207,36 +221,41 @@
     /* Couvrir toute la hauteur de l'écran */
     background-color: white;
     /* z-index: 9999; */
-}
-
-.modal {
     border: none;
     position: fixed;
     /* Position fixe pour le maintenir en place lors du défilement */
     top: 0;
     left: 0;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
 }
+
 
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
+    max-height: 90vh;
+    /* Limitez la hauteur du formulaire à 90% de la hauteur de la fenêtre */
 }
 
-.formulaire {
+/* .formulaire {
     width: 33%;
+    height: 100%;
     border-radius: 5px;
     background-color: #DB8876;
     padding: 35px;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     flex-direction: column;
+} */
+.formulaire {
+    width: 33%;
+    /* Ajustez la largeur de votre formulaire selon vos besoins */
+    height: auto;
+    /* Laissez la hauteur s'adapter au contenu */
 
+    border-radius: 5px;
+    background-color: #DB8876;
+    padding: 35px;
 }
+
 
 .formulaire header {
     justify-content: space-between;
@@ -253,11 +272,11 @@
     text-align: center;
 }
 
-form {
+.formulaire form {
     display: flex;
-    width: 100%;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
 }
 
 form label {
@@ -265,7 +284,7 @@ form label {
     font-size: 36px;
 }
 
-form div {
+form .formData {
     display: flex;
     flex-direction: column;
     width: 100%;
