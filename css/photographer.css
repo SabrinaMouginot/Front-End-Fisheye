@@ -241,26 +241,28 @@
     /* Ajustez la largeur de votre formulaire selon vos besoins */
     height: auto;
     /* Laissez la hauteur s'adapter au contenu */
-
     border-radius: 5px;
     background-color: #DB8876;
     padding: 20px;
 
 }
 
-
 .formulaire header {
+    display: flex;
     justify-content: space-between;
+    align-items: start;
     width: 100%;
-    padding-bottom: 20px;
 }
 
 .formulaire header img {
     cursor: pointer;
+    /* width: 3%;
+    height: 3%; */
+    width: 45px;
 }
 
 .formulaire header h2 {
-    font-size: 35px;
+    font-size: 32px;
     font-weight: normal;
     /* text-align: center; */
     display: flex;
@@ -277,7 +279,7 @@
 
 form label {
     color: #312E2E;
-    font-size: 25px;
+    font-size: 22px;
 }
 
 form .formData {
@@ -289,10 +291,14 @@ form .formData {
 form input,
 form textarea {
     width: 100%;
-    height: 68px;
+    /* height: 68px; */
     border: none;
     border-radius: 5px;
     font-size: 24px;
+}
+
+form textarea {
+    height: 130px;
 }
 
 
