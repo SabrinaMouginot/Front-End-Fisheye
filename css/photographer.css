@@ -244,7 +244,7 @@
     /* Laissez la hauteur s'adapter au contenu */
     border-radius: 5px;
     background-color: #DB8876;
-    padding: 20px;
+    padding: 30px;
 
 }
 
@@ -292,14 +292,13 @@ form .formData {
 form input,
 form textarea {
     width: 100%;
-    /* height: 68px; */
+    height: 55px;
     border: none;
-    border-radius: 5px;
     font-size: 24px;
 }
 
 form textarea {
-    height: 130px;
+    height: 170px;
 }
 
 
@@ -312,4 +311,16 @@ form textarea {
     /* Épaisseur du contour */
     -webkit-text-stroke-color: rgb(153, 0, 0);
     /* Couleur du contour */
+}
+
+.errorDisplay {
+    visibility: hidden;
+    color: green;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.errorPlace {
+    display: flex;
+    text-align: right;
 }
