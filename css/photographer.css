@@ -132,6 +132,10 @@
 }
 
 /* LIGHTBOX MEDIAS */
+img#btn-close {
+    width: 50px;
+}
+
 .lightbox {
     position: fixed;
     /* Position fixe pour rester à la même position sur l'écran */
