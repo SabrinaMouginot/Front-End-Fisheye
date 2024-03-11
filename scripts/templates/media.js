@@ -15,7 +15,6 @@ export function mediaTemplate(data, firstname) {
         img.tabIndex = 1;
         video.setAttribute("data-index", index);
         video.tabIndex = 1;
-        // video.setAttribute('title', data.title); // Ajout du titre à la balise vidéo
         const div = document.createElement('div');
         const mediaTitle = document.createElement('h3');
         mediaTitle.tabIndex = 1;
@@ -35,7 +34,6 @@ export function mediaTemplate(data, firstname) {
             const source = document.createElement('source')
             video.appendChild(source)
             source.src = path + data.video;
-            // source.setAttribute('title', data.title); // Ajout du titre à la balise vidéo
             article.appendChild(video)
         }
 

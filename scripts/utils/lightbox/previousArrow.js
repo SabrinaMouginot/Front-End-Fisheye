@@ -29,14 +29,12 @@ export function navigateToPreviousMedia() {
     // Vide la lightbox avant d'ajouter le nouveau média
     lightboxContent.innerHTML = '';
 
-    // if (previousMedia && previousMedia.image) {
     if (previousMedia.image) {
         const img = document.createElement('img');
         img.setAttribute("data-index", previousIndex);
         img.src = path + previousMedia.image;
         img.alt = previousMedia.title;
         lightboxContent.appendChild(img);
-    // } else if (previousMedia && previousMedia.video) {
     } else if (previousMedia.video) {
         const video = document.createElement('video');
         const source = document.createElement('source');
@@ -44,9 +42,6 @@ export function navigateToPreviousMedia() {
         source.src = path + previousMedia.video;
         video.appendChild(source);
         lightboxContent.appendChild(video);
-        // video.setAttribute("data-index", previousIndex);
-        // video.setAttribute('title', previousMedia.title); // Ajout du titre à la balise vidéo
-        // source.setAttribute('title', previousMedia.title); // Ajout du titre à la balise vidéo
     }
 }
 

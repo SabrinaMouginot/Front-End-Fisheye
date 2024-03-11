@@ -1,5 +1,4 @@
 import { mediaTemplate } from '../templates/media.js';
-//import { photographerTemplate } from '../templates/photographer.js'; // Ajoutez cette ligne pour importer le template du photographe
 
 const urlParams = new URLSearchParams(window.location.search);
 const photographerId = urlParams.get('id');

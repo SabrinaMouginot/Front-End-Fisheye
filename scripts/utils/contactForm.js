@@ -30,7 +30,7 @@ const validForm = (event) => {
         formData.classList.add("success");
         formData.classList.remove("error");
         errors--;
-        
+
     }
 
     const firstName = document.getElementById('first'); //Récupère l'élément du DOM avec l'ID "prenom" et l'assigne à la variable constante "firstName".

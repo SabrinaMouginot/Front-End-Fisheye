@@ -38,7 +38,7 @@ export function photographerTemplate(data) { //export permet à d'autres fichier
         priceParagraph.textContent = `${price}€/jour`;
         anchor.appendChild(priceParagraph);
 
-        // Ajout de la balise ancre (<a>) à <article>
+        // Ajout de la balise ancre (<a>) à <article>)
         article.appendChild(anchor);
 
         return article;
