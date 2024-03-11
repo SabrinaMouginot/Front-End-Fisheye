@@ -5,7 +5,6 @@
     height: 300px;
     margin: 0 100px;
     display: flex;
-    /* justify-content: space-between; */
     justify-content: space-around;
     align-items: center;
 }
@@ -111,17 +110,14 @@
 
 .media-content h3 {
     margin-right: auto;
-    /* Faites en sorte que le titre soit à gauche en prenant le maximum d'espace disponible */
+    /* le titre est à gauche en prenant le maximum d'espace disponible */
 }
 
 .media-content span+i {
     margin-left: 5px;
-    /* Ajoutez une marge à gauche de l'icône de cœur */
 }
 
 .like-icon {
-    cursor: pointer;
-    /* Change le curseur en une petite main avec le doigt tendu */
     font-style: normal;
 }
 
@@ -136,18 +132,29 @@ img#btn-close {
     width: 50px;
 }
 
+.arrow-container {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .lightbox {
     position: fixed;
-    /* Position fixe pour rester à la même position sur l'écran */
     top: 0;
     /* Alignement en haut de l'écran */
     left: 0;
     /* Alignement à gauche de l'écran */
+    right: 0;
+    bottom: 0;
     width: 100%;
     /* Largeur de la lightbox égale à 100% de la largeur de l'écran */
     height: 100%;
-    /* Hauteur de la lightbox égale à 100% de la hauteur de l'écran */
     border: none;
+}
+
+.lightbox::backdrop {
+    background-color: white;
 }
 
 .lightbox-content {
@@ -160,7 +167,6 @@ img#btn-close {
 
 #btn-close-container {
     margin-left: auto;
-    /* Pousse le bouton de fermeture vers la droite */
     position: absolute;
     top: 0;
     right: 0;
@@ -221,11 +227,8 @@ img#btn-close {
 
 #contact_modal {
     width: 100%;
-    /* Couvrir toute la largeur de l'écran */
     height: 100%;
-    /* Couvrir toute la hauteur de l'écran */
     background-color: white;
-    /* z-index: 9999; */
     border: none;
     position: fixed;
     /* Position fixe pour le maintenir en place lors du défilement */
@@ -238,12 +241,10 @@ img#btn-close {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* max-height: 90vh; */
 }
 
 .formulaire {
     width: 33%;
-    /* Ajustez la largeur de votre formulaire selon vos besoins */
     height: auto;
     /* Laissez la hauteur s'adapter au contenu */
     border-radius: 5px;
@@ -261,15 +262,12 @@ img#btn-close {
 
 .formulaire header img {
     cursor: pointer;
-    /* width: 3%;
-    height: 3%; */
     width: 45px;
 }
 
 .formulaire header h2 {
     font-size: 32px;
     font-weight: normal;
-    /* text-align: center; */
     display: flex;
     flex-direction: column;
     margin: 0px;
