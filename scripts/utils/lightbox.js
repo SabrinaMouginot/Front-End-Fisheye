@@ -42,13 +42,6 @@ export function openLightbox(mediaData, pathFromPage, mediasFromPage, index) {
         } else if (event.key === 'ArrowRight') {
             navigateToNextMedia();
         }
-    });
+    },true);
 
-    window.addEventListener('keydown', function (event) {
-        if (event.key === 'ArrowDown') {
-            window.scrollBy(0, 100);
-        } else if (event.key === 'ArrowUp') {
-            window.scrollBy(0, -100);
-        }
-    });
 }
