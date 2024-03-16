@@ -64,7 +64,6 @@ const validForm = (event) => {
     }
 
     if (errors <= 0) {
-        console.log(firstName.value, lastName.value, mail.value, messageForm.value)
         closeModal()
     }
 }

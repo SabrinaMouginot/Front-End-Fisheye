@@ -3,8 +3,6 @@ let medias = []; // Définir et initialiser medias
 
 export function mediaTemplate(data, firstname) {
     const path = `assets/photographers/Sample_Photos/${firstname}/`;
-    console.log('Path:', path);
-    console.log('Medias:', medias);
 
     function getMediaCardDOM(index, medias) {
         const article = document.createElement('article');
