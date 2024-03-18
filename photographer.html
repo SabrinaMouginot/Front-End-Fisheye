@@ -21,14 +21,14 @@
         <h2 id="photographer-location"></h2>
         <p id="photographer-desc"></p>
       </div>
-      <button class="contact_button contact" id="contact">Contactez-moi</button>
+      <button class="contact_button contact" id="contact" tabindex="1">Contactez-moi</button>
       <img id="photographer-photo">
     </div>
 
     <div id="filterContainer">
       <!-- Création des filtres -->
       <label for="filterSelect">Trier par :</label>
-      <select id="filterSelect">
+      <select id="filterSelect" tabindex="1">
         <option value="popularity">Popularité</option>
         <option value="date">Date</option>
         <option value="title">Titre</option>
@@ -53,12 +53,12 @@
   <dialog id="lightbox" class="lightbox">
     <div class="lightbox-content">
       <div class="arrow-container">
-        <img src="assets/fleches/left.svg" alt="flèche de gauche" class="arrow arrow-left" role="button" tabindex="0"
+        <img src="assets/fleches/left.svg" alt="flèche de gauche" class="arrow arrow-left" role="button" tabindex="1"
           onclick="closeModal()" onkeypress="handleKeyPress(event)">
       </div>
       <div id="media-content"></div>
       <div class="arrow-container">
-        <img src="assets/fleches/right.svg" alt="flèche de droite" class="arrow arrow-right" role="button" tabindex="0"
+        <img src="assets/fleches/right.svg" alt="flèche de droite" class="arrow arrow-right" role="button" tabindex="1"
           onclick="closeModal()" onkeypress="handleKeyPress(event)">
         <div id="btn-close-container">
           <img id="btn-close" src="assets/icons/close.svg" alt="bouton fermer">
@@ -75,7 +75,7 @@
             <h2>Contactez-moi</h2>
             <h2 id="journalistName">journaliste</h2>
           </div>
-          <img src="assets/icons/close.svg" alt="bouton fermant" role="button" tabindex="0" onclick="closeModal()"
+          <img src="assets/icons/close.svg" alt="bouton fermant" role="button" tabindex="1" onclick="closeModal()"
             onkeypress="handleKeyPress(event)">
         </header>
         <form name="reserve" id="form">
