@@ -1,6 +1,5 @@
 import { navigateToPreviousMedia } from './lightbox/previousArrow.js';
 import { navigateToNextMedia } from './lightbox/nextArrow.js';
-// Importe des fonctions de navigation vers les médias précédents et suivants 
 
 // LIGHTBOX
 export let medias = [];
@@ -51,6 +50,17 @@ export function openLightbox(mediaData, pathFromPage, mediasFromPage, index) {
             navigateToPreviousMedia();
         } else if (event.key === 'ArrowRight') {
             navigateToNextMedia();
+        } else if (event.key === 'Enter') {
+            // Récupérer l'élément qui a le focus
+            const focusedElement = document.activeElement;
+            // Vérifier si l'élément a une classe spécifique pour le traitement de la touche Enter
+            if (focusedElement.classList.contains('arrow-left')) {
+                navigateToNextMedia();
+            } else if (focusedElement.classList.contains('arrow-right')) {
+                navigateToPreviousMedia();
+            } else if (focusedElement.id === 'btn-close') {
+                lightbox.close();
+            }
         }
     }, true);
 }
