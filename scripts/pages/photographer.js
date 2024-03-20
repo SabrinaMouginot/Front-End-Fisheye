@@ -1,16 +1,21 @@
 import { mediaTemplate } from '../templates/media.js';
+//importe la fonction mediaTemplate depuis un fichier media.js situé dans un dossier templates. 
 
+// Extraire l'ID du photographe 
 const urlParams = new URLSearchParams(window.location.search);
 const photographerId = urlParams.get('id');
+
 /* eslint-disable no-unused-vars */
 const dialog = document.querySelector("#contact_modal");
 /* eslint-enable no-unused-vars */
 
-const filterSelect = document.getElementById('filterSelect'); // Déplacement de la déclaration de filterSelect
+// Déplacement de la déclaration de filterSelect
+const filterSelect = document.getElementById('filterSelect'); 
 
-// Définissez une variable globale pour stocker le nom du journaliste
+// Définition une variable globale pour stocker le nom du journaliste
 let journalistName = "";
 
+// Récupération des données des photographes 
 async function getPhotographer() {
     const data = await fetch('http://127.0.0.1:5500/data/photographers.json')
         .then((res) => res.json())
@@ -19,6 +24,7 @@ async function getPhotographer() {
     return photographer;
 }
 
+// Récupération des médias du photographe
 async function getPhotographerMedias() {
     const data = await fetch('http://127.0.0.1:5500/data/photographers.json')
         .then((res) => res.json())
@@ -27,6 +33,7 @@ async function getPhotographerMedias() {
     return medias;
 }
 
+// Affichage les infos du photographe dans le DOM 
 function displayPhotographerInfo(photographer) {
     const photographerName = document.querySelector("#photographer-name");
     const photographerLocation = document.querySelector("#photographer-location");
@@ -50,6 +57,7 @@ function displayPhotographerInfo(photographer) {
     }
 }
 
+// Affichage des médias du photographe dans le DOM en utilisant les données des médias récupérées.
 async function displayMedias(medias, firstname) {
     const mediaContainer = document.getElementById("mediaContainer");
     mediaContainer.innerHTML = '';
@@ -78,6 +86,7 @@ async function displayMedias(medias, firstname) {
     likesContent.innerHTML = `${totalLikes} &#10084;`;
 }
 
+// Affichage de la modale de contact avec le nom du journaliste
 async function displayModal() {
     const contactModal = document.querySelector('#contact_modal');
     const journalistHeader = document.querySelector('#journalistName'); // Sélectionnez le h2 où le nom du journaliste doit être inséré
@@ -88,16 +97,20 @@ async function displayModal() {
 async function init() {
     document.getElementById("likesContent").innerHTML = '0 &#10084;';
 
+    // - récupération et affichage des données du photographe, 
     const photographer = await getPhotographer();
     journalistName = photographer.name; // Enregistrez le nom du journaliste
     displayPhotographerInfo(photographer);
 
+    // - Ajout d'un écouteur d'événements au bouton de contact, 
     const contactBtn = document.querySelector("#contact");
     contactBtn.addEventListener("click", displayModal);
 
+    // - Récupération, affichage des médias du photographe, 
     const medias = await getPhotographerMedias();
     displayMedias(medias, photographer.name.split(" ")[0].replace("-", "_"));
 
+    // - Ajout d'un écouteur d'événements au sélecteur de filtre.
     filterSelect.addEventListener('change', async () => {
         const selectedOption = filterSelect.value;
         const medias = await getPhotographerMedias();
@@ -112,6 +125,5 @@ async function init() {
     });
 }
 
+// Appel la fonction init pour démarrer l'exécution
 init();
-
-// Dans la fonction displayModal(), insérez le nom du journaliste dans le HTML du formulaire de contact

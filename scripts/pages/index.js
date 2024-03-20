@@ -26,5 +26,5 @@ async function init() {
     displayData(photographers);
 }
 
-// appelle la fonction init pour démarrer l'exécution 
+// appel la fonction init pour démarrer l'exécution 
 init();
