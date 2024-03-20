@@ -1,10 +1,15 @@
 import { openLightbox } from '../utils/lightbox.js'; //pour importer la fonction openLightbox
-let medias = []; // Définir et initialiser medias
+
+//Stockage des médias
+let medias = [];
 
 export function mediaTemplate(data, firstname) {
     const path = `assets/photographers/Sample_Photos/${firstname}/`;
 
+    // Création et Rendu de la carte HTML d'un média. 
     function getMediaCardDOM(index, medias) {
+
+        // Ajout des éléments HTML représentant le média et ses informations :
         const article = document.createElement('article');
         article.tabIndex = 1;
         const img = document.createElement('img');
@@ -24,6 +29,7 @@ export function mediaTemplate(data, firstname) {
         article.classList.add("media-item");
         div.classList.add("media-content");
 
+        // Affichage du média (image ou vidéo) et son titre
         if (data.image) {
             article.appendChild(img)
             img.src = path + data.image;
@@ -35,11 +41,10 @@ export function mediaTemplate(data, firstname) {
             article.appendChild(video)
         }
 
+        // Affichage du nombre de likes du média et du bouton de like.
         mediaTitle.innerText = data.title;
         nbLikes.innerText = data.likes;
 
-
-        // Ajoutez la classe de l'icône de cœur et définissez son contenu Unicode ou utilisez une bibliothèque d'icônes
         btnLike.classList.add("like-icon");
         btnLike.innerHTML = "&#10084;"; // Exemple de cœur en utilisant Unicode
 
@@ -58,6 +63,7 @@ export function mediaTemplate(data, firstname) {
 
         let isLiked = false; // Variable pour garder une trace de l'état du cœur
 
+        // Gestion de l'interaction avec le bouton de like 
         btnLike.addEventListener('click', () => {
             if (!isLiked) {
                 data.likes++;
@@ -84,7 +90,7 @@ export function mediaTemplate(data, firstname) {
         return article;
     }
 
-    // Ajouter le média actuel à la liste des médias
+    // Ajout du média actuel à la liste des médias pour une utilisation ultérieure.
     medias.push(data);
 
     return { getMediaCardDOM };
