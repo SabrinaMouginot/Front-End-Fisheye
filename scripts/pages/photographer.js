@@ -127,3 +127,36 @@ async function init() {
 
 // Appel la fonction init pour démarrer l'exécution
 init();
+
+const main = document.getElementById('main');
+    // Gestionnaire d'événements pour intercepter la tabulation
+    main.addEventListener('keydown', function (event) {
+        if (event.key === 'Tab') {
+            // Récupérer tous les éléments focusables dans la lightbox
+            const focusableElements = main.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            const totalFocusable = focusableElements.length;
+
+            // Récupérer l'index de l'élément actuellement focusé
+            let currentIndex = Array.from(focusableElements).indexOf(document.activeElement);
+
+            // Si l'utilisateur appuie sur Maj + Tab, inverser la direction
+            const isShiftPressed = event.shiftKey;
+            const tabDirection = isShiftPressed ? -1 : 1;
+
+            // Calculer le prochain index
+            let nextIndex = currentIndex + tabDirection;
+
+            // Gérer les cas où l'index sort des limites
+            if (nextIndex >= totalFocusable) {
+                nextIndex = 0; // Retour au début
+            } else if (nextIndex < 0) {
+                nextIndex = totalFocusable - 1; // Aller à la fin
+            }
+
+            // Définir le focus sur le prochain élément focusable
+            focusableElements[nextIndex].focus();
+
+            // Empêcher la tabulation de se propager
+            event.preventDefault();
+        }
+    });
